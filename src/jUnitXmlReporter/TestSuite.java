@@ -1,11 +1,12 @@
 package jUnitXmlReporter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestSuite
 {
 	private String name;
-	private ArrayList<TestCase> testCaseList;
+	private List<TestCase> testCaseList;
 	
 	public TestSuite(String name)
 	{
@@ -18,12 +19,12 @@ public class TestSuite
 		testCaseList.add(tc);
 	}
 
-	public ArrayList<TestCase> getTestCaseList()
+	public List<TestCase> getTestCaseList()
 	{
 		return testCaseList;
 	}
 
-	public void setTestCaseList(ArrayList<TestCase> testCaseList)
+	public void setTestCaseList(List<TestCase> testCaseList)
 	{
 		this.testCaseList = testCaseList;
 	}

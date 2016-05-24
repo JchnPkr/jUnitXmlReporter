@@ -4,7 +4,7 @@ public class TestCase
 {
 	public enum Type
 	{
-			ERROR, FAILURE, SKIPPED, SYSTEMOUT
+		ERROR, FAILURE, SKIPPED, SYSTEMOUT
 	}
 	
 	private String name;
