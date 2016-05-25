@@ -1,4 +1,7 @@
-package jUnitXmlReporter;
+package jUnitXmlReporter.observerClasses;
+
+import jUnitXmlReporter.jUnitElementClasses.TestCase;
+import jUnitXmlReporter.jUnitElementClasses.TestSuite;
 
 public interface ReportSubjectInterface 
 {
