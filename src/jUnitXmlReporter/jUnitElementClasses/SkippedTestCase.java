@@ -12,9 +12,10 @@ public class SkippedTestCase extends TestCase
 	@Override
 	public Element getJUnitTestCaseXmlElement()
 	{
-		Element skipped = new Element("skipped");
-		skipped.addContent(message);
-			
-		return skipped;
+		Element testCase = new Element("testcase").setAttribute("name", this.name);
+		Element skipped = new Element("skipped").addContent(message);
+		testCase.addContent(skipped);
+		
+		return testCase;
 	}
 }

@@ -27,6 +27,11 @@ public class JUnitXmlReportCreator
 	{
 		if (validateFileName(fileName))
 		{
+			this.reportFilePath = new File(filePath);
+			
+			if(!this.reportFilePath.exists())
+				this.reportFilePath.mkdir();
+			
 			this.reportFilePath = new File(filePath, fileName);
 			this.xmlOutput = new XMLOutputter();
 			this.jDoc = new Document(new Element("testsuites"));

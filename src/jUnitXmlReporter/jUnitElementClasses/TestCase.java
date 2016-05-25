@@ -4,7 +4,7 @@ import org.jdom2.Element;
 
 public abstract class TestCase
 {
-	private String name;
+	protected String name;
 	protected String message;
 	
 	public TestCase(String name, String message)

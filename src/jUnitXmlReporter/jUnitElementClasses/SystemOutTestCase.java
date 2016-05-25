@@ -12,9 +12,10 @@ public class SystemOutTestCase extends TestCase
 	@Override
 	public Element getJUnitTestCaseXmlElement()
 	{
-		Element sysOut = new Element("system-out");
-		sysOut.addContent(message);
-	
-		return sysOut;
+		Element testCase = new Element("testcase").setAttribute("name", this.name);
+		Element sysOut = new Element("system-out").addContent(message);
+		testCase.addContent(sysOut);
+		
+		return testCase;	
 	}
 }

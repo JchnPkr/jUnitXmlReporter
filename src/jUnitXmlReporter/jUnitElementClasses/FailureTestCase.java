@@ -12,9 +12,10 @@ public class FailureTestCase extends TestCase
 	@Override
 	public Element getJUnitTestCaseXmlElement()
 	{
-		Element fail = new Element("failure");
-		fail.addContent(message);
+		Element testCase = new Element("testcase").setAttribute("name", this.name);
+		Element fail = new Element("failure").addContent(message);
+		testCase.addContent(fail);
 			
-		return fail;
+		return testCase;
 	}
 }

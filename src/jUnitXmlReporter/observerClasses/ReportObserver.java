@@ -6,16 +6,20 @@ import jUnitXmlReporter.jUnitElementClasses.TestSuite;
 
 
 
-public class ReportObserverImpl implements ReportObserverInterface
+public class ReportObserver
 {
 	private HashMap<String, TestSuite> testSuiteMap;
 
+	public ReportObserver()
+	{
+		this.testSuiteMap = new HashMap<>();
+	}
+	
 	public HashMap<String, TestSuite> getTestSuiteMap()
 	{
 	    return this.testSuiteMap;
 	}
 
-	@Override
 	public void upDate(TestSuite ts)
 	{
 		if(testSuiteMap.containsKey(ts.getName()))
