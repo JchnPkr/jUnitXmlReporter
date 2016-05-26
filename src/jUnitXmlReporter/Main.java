@@ -4,8 +4,8 @@ import java.security.spec.InvalidParameterSpecException;
 
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
-import testClasses.TestedClass;
-import testClasses.TestingClass;
+import usageDemoClasses.TestedClass;
+import usageDemoClasses.TestingClass;
 
 public class Main
 {

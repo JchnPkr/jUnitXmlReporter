@@ -35,7 +35,7 @@ public abstract class TestCase
 	
 	public String getType()
 	{
-		return this.getClass().toString();
+		return this.getClass().getSimpleName();
 	}
 	
 	public abstract Element getJUnitTestCaseXmlElement();

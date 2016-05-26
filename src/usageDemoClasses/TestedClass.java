@@ -1,4 +1,4 @@
-package testClasses;
+package usageDemoClasses;
 
 public class TestedClass
 {

@@ -1,4 +1,4 @@
-package testClasses;
+package usageDemoClasses;
 
 import jUnitXmlReporter.jUnitElementClasses.FailureTestCase;
 import jUnitXmlReporter.jUnitElementClasses.TestSuite;
