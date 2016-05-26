@@ -2,7 +2,7 @@ package jUnitXmlReporter.jUnitElementClasses;
 
 import org.jdom2.Element;
 
-public class SystemOutTestCase extends TestCase
+public class SystemOutTestCase extends AbstractTestCase
 {
 	public SystemOutTestCase(String name, String message)
 	{

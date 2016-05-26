@@ -14,7 +14,7 @@ import org.jdom2.Namespace;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
-import jUnitXmlReporter.jUnitElementClasses.TestSuite;
+import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
 
 public class JUnitXmlReportCreator
 {
@@ -60,15 +60,15 @@ public class JUnitXmlReportCreator
 		return fileName.endsWith(".xml");
 	}
 
-	public void createJUnitReport(HashMap<String, TestSuite> testSuiteMap)
+	public void createJUnitReport(HashMap<String, ReportTestSuite> testSuiteMap)
 	{
 		this.addTestSuitesToRoot(testSuiteMap);
 		this.writeJUnitReportXmlFile();
 	}
 
-	private void addTestSuitesToRoot(HashMap<String, TestSuite> testSuiteMap)
+	private void addTestSuitesToRoot(HashMap<String, ReportTestSuite> testSuiteMap)
 	{
-		for (TestSuite testSuite : testSuiteMap.values())
+		for (ReportTestSuite testSuite : testSuiteMap.values())
 			this.rootElement.addContent(testSuite.getJUnitTestSuiteXmlElement());
 	}
 

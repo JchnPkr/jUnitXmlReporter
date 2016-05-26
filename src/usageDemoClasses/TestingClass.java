@@ -1,7 +1,7 @@
 package usageDemoClasses;
 
 import jUnitXmlReporter.jUnitElementClasses.FailureTestCase;
-import jUnitXmlReporter.jUnitElementClasses.TestSuite;
+import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.observerClasses.ReportSubjectInterface;
 
@@ -22,14 +22,14 @@ public class TestingClass implements ReportSubjectInterface
 	}
 
 	@Override
-	public void notifyObserver(TestSuite testSuite)
+	public void notifyObserver(ReportTestSuite testSuite)
 	{
 		reportObserver.upDate(testSuite);
 	}
 	
 	public void testContainsCapital(TestedClass testSubject)
 	{
-		TestSuite suite = new TestSuite(testSubject.getIdString());
+		ReportTestSuite suite = new ReportTestSuite(testSubject.getIdString());
 		
 		String allLower = testSubject.getSomeString().toLowerCase();
 		
@@ -46,7 +46,7 @@ public class TestingClass implements ReportSubjectInterface
 	
 	public void testIsNotPalindrome(TestedClass testSubject)
 	{
-		TestSuite suite = new TestSuite(testSubject.getIdString());
+		ReportTestSuite suite = new ReportTestSuite(testSubject.getIdString());
 
 		StringBuilder strBuild = new StringBuilder();
 		strBuild.append(testSubject.getSomeString().toLowerCase());

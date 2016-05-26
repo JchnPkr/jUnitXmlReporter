@@ -6,16 +6,16 @@ import org.jdom2.Element;
 import org.junit.Before;
 import org.junit.Test;
 
-import jUnitXmlReporter.jUnitElementClasses.TestCase;
+import jUnitXmlReporter.jUnitElementClasses.AbstractTestCase;
 
-public class TestCaseClassTest
+public class AbstractTestCaseClassTest
 {
-	private TestCase tc;
+	private AbstractTestCase tc;
 	
 	@Before
 	public void setUp() throws Exception
 	{
-		tc = new TestCase("tcName", "tcMessage")
+		tc = new AbstractTestCase("tcName", "tcMessage")
 		{		
 			@Override
 			public Element getJUnitTestCaseXmlElement()

@@ -2,7 +2,7 @@ package jUnitXmlReporter.jUnitElementClasses;
 
 import org.jdom2.Element;
 
-public class SkippedTestCase extends TestCase
+public class SkippedTestCase extends AbstractTestCase
 {
 	public SkippedTestCase(String name, String message)
 	{

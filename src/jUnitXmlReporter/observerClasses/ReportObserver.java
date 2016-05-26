@@ -2,25 +2,25 @@ package jUnitXmlReporter.observerClasses;
 
 import java.util.HashMap;
 
-import jUnitXmlReporter.jUnitElementClasses.TestSuite;
+import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
 
 
 
 public class ReportObserver
 {
-	private HashMap<String, TestSuite> testSuiteMap;
+	private HashMap<String, ReportTestSuite> testSuiteMap;
 
 	public ReportObserver()
 	{
 		this.testSuiteMap = new HashMap<>();
 	}
 	
-	public HashMap<String, TestSuite> getTestSuiteMap()
+	public HashMap<String, ReportTestSuite> getTestSuiteMap()
 	{
 	    return this.testSuiteMap;
 	}
 
-	public void upDate(TestSuite ts)
+	public void upDate(ReportTestSuite ts)
 	{
 		if(testSuiteMap.containsKey(ts.getName()))
 		{

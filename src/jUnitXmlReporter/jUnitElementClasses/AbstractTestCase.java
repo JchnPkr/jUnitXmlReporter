@@ -2,12 +2,12 @@ package jUnitXmlReporter.jUnitElementClasses;
 
 import org.jdom2.Element;
 
-public abstract class TestCase
+public abstract class AbstractTestCase
 {
 	protected String name;
 	protected String message;
 	
-	public TestCase(String name, String message)
+	public AbstractTestCase(String name, String message)
 	{
 		this.name = name;
 		this.message = message;

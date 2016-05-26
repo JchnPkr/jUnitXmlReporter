@@ -2,7 +2,7 @@ package jUnitXmlReporter.jUnitElementClasses;
 
 import org.jdom2.Element;
 
-public class ErrorTestCase extends TestCase
+public class ErrorTestCase extends AbstractTestCase
 {
 	public ErrorTestCase(String name, String message)
 	{

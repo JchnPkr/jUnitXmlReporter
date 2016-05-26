@@ -8,18 +8,18 @@ import org.apache.commons.collections4.IteratorUtils;
 import org.jdom2.Element;
 import org.jdom2.filter.ElementFilter;
 
-public class TestSuite
+public class ReportTestSuite
 {
 	private String name;
-	private HashMap<String, TestCase> testCaseMap;
+	private HashMap<String, AbstractTestCase> testCaseMap;
 	
-	public TestSuite(String name)
+	public ReportTestSuite(String name)
 	{
 		this.setName(name);
 		this.testCaseMap = new HashMap<>();
 	}
 	
-	public void addTestCase(TestCase tc)
+	public void addTestCase(AbstractTestCase tc)
 	{
 		if(containsTestCase(tc))
 		{
@@ -31,7 +31,7 @@ public class TestSuite
 			testCaseMap.put(tc.getName(), tc);
 	}
 
-	private boolean containsTestCase(TestCase tc)
+	private boolean containsTestCase(AbstractTestCase tc)
 	{	
 		if(testCaseMap.containsKey(tc.getName()))
 			return	isSameTestCaseType(tc);
@@ -39,7 +39,7 @@ public class TestSuite
 		return  false;
 	}
 	
-	private boolean isSameTestCaseType(TestCase tc)
+	private boolean isSameTestCaseType(AbstractTestCase tc)
 	{
 		String existingTcType = testCaseMap.get(tc.getName())
 				.getType();
@@ -47,9 +47,9 @@ public class TestSuite
 		return existingTcType.equals(tc.getType());
 	}
 	
-	public List<TestCase> getTestCaseList()
+	public List<AbstractTestCase> getTestCaseList()
 	{
-		return new ArrayList<TestCase>(testCaseMap.values());
+		return new ArrayList<AbstractTestCase>(testCaseMap.values());
 	}
 
 	public String getName()
@@ -62,9 +62,9 @@ public class TestSuite
 		this.name = name;
 	}
 
-	public void addAllTestCases(List<TestCase> testCaseList)
+	public void addAllTestCases(List<AbstractTestCase> testCaseList)
 	{
-		for(TestCase tc: testCaseList)
+		for(AbstractTestCase tc: testCaseList)
 		{
 			addTestCase(tc);
 		}
@@ -87,7 +87,7 @@ public class TestSuite
 	
 	private void addTestCasesToSuiteXmlElement(Element suite)
 	{
-		for(TestCase testCase: testCaseMap.values())
+		for(AbstractTestCase testCase: testCaseMap.values())
 		{
 			Element jUnitTestCaseXmlTag = testCase.getJUnitTestCaseXmlElement();
 			suite.addContent(jUnitTestCaseXmlTag);
