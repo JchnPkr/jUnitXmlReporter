@@ -3,22 +3,12 @@ package usageDemoClasses;
 public class TestedClass
 {
 	private String idString;
-	private String someString;
+	private String[] someStringArr;
 	
-	public TestedClass(String idString, String someString)
+	public TestedClass(String idString, String[] someStringArr)
 	{
 		this.setIdString(idString);
-		this.setSomeString(someString);
-	}
-
-	public String getSomeString()
-	{
-		return someString;
-	}
-
-	public void setSomeString(String someString)
-	{
-		this.someString = someString;
+		this.setSomeStringArr(someStringArr);
 	}
 
 	public String getIdString()
@@ -29,5 +19,15 @@ public class TestedClass
 	public void setIdString(String idString)
 	{
 		this.idString = idString;
+	}
+
+	public String[] getSomeStringArr()
+	{
+		return someStringArr;
+	}
+
+	public void setSomeStringArr(String[] someStringArr)
+	{
+		this.someStringArr = someStringArr;
 	}
 }

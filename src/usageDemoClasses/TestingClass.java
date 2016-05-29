@@ -16,12 +16,6 @@ public class TestingClass implements ReportSubjectInterface
 	}
 
 	@Override
-	public void removeReportObserver(ReportObserver observer)
-	{
-		this.reportObserver = null;
-	}
-
-	@Override
 	public void notifyObserver(ReportTestSuite testSuite)
 	{
 		reportObserver.upDate(testSuite);
@@ -31,14 +25,17 @@ public class TestingClass implements ReportSubjectInterface
 	{
 		ReportTestSuite suite = new ReportTestSuite(testSubject.getIdString());
 		
-		String allLower = testSubject.getSomeString().toLowerCase();
-		
-		if(!allLower.equals(testSubject.getSomeString()))
+		for(String testedString: testSubject.getSomeStringArr())
 		{
-			String msg = "someString '"+testSubject.getSomeString()
-						+"' contains capital letter(s)";
+			String allLower = testedString.toLowerCase();
 			
-			suite.addTestCase(new FailureTestCase("containsCapitalTest", msg));
+			if(!allLower.equals(testedString))
+			{
+				String msg = "someString '"+testedString
+							+"' contains capital letter(s)";
+				
+				suite.addTestCase(new FailureTestCase("containsCapitalTest", msg));
+			}
 		}
 		
 		notifyObserver(suite);
@@ -48,18 +45,28 @@ public class TestingClass implements ReportSubjectInterface
 	{
 		ReportTestSuite suite = new ReportTestSuite(testSubject.getIdString());
 
+		for(String testedString: testSubject.getSomeStringArr())
+		{
+			String reversedString = reverseString(testedString);
+			
+			if(!reversedString.equals(testedString.toLowerCase()))
+			{
+				String msg = "someString '"+testedString
+				+"' is not a palindrome";
+	
+				suite.addTestCase(new FailureTestCase("palindromeTest", msg));
+			}
+		}
+		
+		notifyObserver(suite);
+	}
+	
+	private String reverseString(String s)
+	{
 		StringBuilder strBuild = new StringBuilder();
-		strBuild.append(testSubject.getSomeString().toLowerCase());
+		strBuild.append(s.toLowerCase());
 		strBuild=strBuild.reverse(); 
 		
-		if(!strBuild.toString().equals(testSubject.getSomeString().toLowerCase()))
-		{
-			String msg = "someString '"+testSubject.getSomeString()
-			+"' is not a palindrome";
-
-			suite.addTestCase(new FailureTestCase("palindromeTest", msg));
-		}
-
-		notifyObserver(suite);
+		return strBuild.toString();
 	}
 }

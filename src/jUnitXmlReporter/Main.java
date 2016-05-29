@@ -17,8 +17,8 @@ public class Main
 		TestingClass testingClass = new TestingClass();	
 		testingClass.registerReportObserver(reportObserver);
 		
-		TestedClass testSubject1 = new TestedClass("firstSubjectToTest", "Aibohphobia");
-		TestedClass testSubject2 = new TestedClass("secondSubjectToTest", "observeD");
+		TestedClass testSubject1 = new TestedClass("firstSubjectToTest", new String[]{"Aibohphobia", "openSource"});
+		TestedClass testSubject2 = new TestedClass("secondSubjectToTest", new String[]{"foof", "observe"});
 
 		testingClass.testContainsCapital(testSubject1);
 		testingClass.testIsNotPalindrome(testSubject1);
