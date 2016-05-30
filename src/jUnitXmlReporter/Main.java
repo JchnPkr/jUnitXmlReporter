@@ -1,6 +1,10 @@
 package jUnitXmlReporter;
 
 import jUnitXmlReporter.observerClasses.ReportObserverImpl;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
@@ -9,9 +13,11 @@ import usageDemoClasses.ReportSubjectImpl;
 
 public class Main
 {
+	private static final Logger logger = LogManager.getLogger();
+	
 	public static void main(String[] args)
 	{
-		System.out.println("---- Starting test run of JUnitXmlRepoter programm ----");
+		logger.trace("---- Starting test run of JUnitXmlRepoter programm ----");
 
 		ReportObserver reportObserver = new ReportObserverImpl();
 		
@@ -31,7 +37,7 @@ public class Main
 			e.printStackTrace();
 		}
 		
-		System.out.println("---- Finished test run of JUnitXmlRepoter programm ----");
+		logger.trace("---- Finished test run of JUnitXmlRepoter programm ----");
 	}
 
 	private static void runTests(ReportObserver reportObserver, CheckedDemoClass testSubject)

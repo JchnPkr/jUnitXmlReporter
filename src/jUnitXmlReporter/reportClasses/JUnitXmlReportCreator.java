@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -18,6 +20,8 @@ import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
 
 public class JUnitXmlReportCreator
 {
+	private static final Logger logger = LogManager.getLogger(JUnitXmlReportCreator.class.getName());
+	
 	private File reportFilePath;
 	private XMLOutputter xmlOutput;
 	private Document jDoc;
@@ -39,8 +43,11 @@ public class JUnitXmlReportCreator
 		}
 		else
 		{
-			String msg = "Failed to create new  JUnitXmlReporterListener! "
-						+ "Filename" + "has to end with '.xml'";
+			String msg = "Failed to create new  JUnitXmlReportCreator! "
+						+ "Filename has to end with '.xml'";
+			
+			logger.error(msg);
+			
 			throw new InvalidReportFileFormat(msg);
 		}
 	}
@@ -62,7 +69,7 @@ public class JUnitXmlReportCreator
 	}
 
 	public void createJUnitReport(HashMap<String, ReportTestSuite> testSuiteMap)
-	{
+	{	
 		this.addTestSuitesToRoot(testSuiteMap);
 		this.writeJUnitReportXmlFile();
 	}
@@ -75,6 +82,9 @@ public class JUnitXmlReportCreator
 
 	private void writeJUnitReportXmlFile()
 	{
+		logger.trace("Creating JUnit XML report file in: "
+					+ reportFilePath.getAbsolutePath());
+		
 		this.xmlOutput.setFormat(Format.getPrettyFormat().setEncoding("UTF-8"));
 
 		try
@@ -84,7 +94,8 @@ public class JUnitXmlReportCreator
 		}
 		catch (IOException io)
 		{
-			System.out.println(io.getMessage());
+			logger.error("Failed to write JUnit XML report: "
+					+ io.getMessage());
 		}
 	}
 }
