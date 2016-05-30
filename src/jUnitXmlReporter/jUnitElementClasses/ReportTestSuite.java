@@ -27,21 +27,22 @@ public class ReportTestSuite
 	{
 		if(containsTestCase(tc))
 		{
-			logger.debug("Update of testsuite: " + name + ", "
-						+ "appending message: '" + tc.getMessage() + "' "
-							+ "to testcase: '"+ tc.getName() +"' "
-							+ "of type: '" + tc.getType() + "'");
+			logger.debug("\n\t Update of testsuite: " + name + ", \n"
+						+ "\t appending message: '" + tc.getMessage() + "' \n"
+							+ "\t to testcase: '"+ tc.getName() +"' \n"
+							+ "\t of type: '" + tc.getType() + "' \n");
 			
 			String oldMessage = testCaseMap.get(tc.getName()).getMessage();
-			String newMessage = oldMessage + "\n" + tc.getMessage();
+			String newMessage = oldMessage + ", \n" + tc.getMessage();
+	
 			testCaseMap.get(tc.getName()).setMessage(newMessage);
 		}
 		else
 		{
-			logger.debug("Update of testsuite: " + name + ", "
-						+ "adding testcase: '" + tc.getName() + "' "
-						+ "of type: '" + tc.getType() +"' "
-						+ "with message: '" +tc.getMessage()+ "'");
+			logger.debug("\n\t Update of testsuite: " + name + ", \n"
+						+ "\t adding testcase: '" + tc.getName() + "' \n"
+						+ "\t of type: '" + tc.getType() +"' \n"
+						+ "\t with message: '" +tc.getMessage()+ "' \n");
 			
 			testCaseMap.put(tc.getName(), tc);
 		}

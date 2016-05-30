@@ -31,13 +31,15 @@ public class ReportObserverImpl implements ReportObserver
 	{		
 		if(testSuiteMap.containsKey(ts.getName()))
 		{
-			logger.debug("ReportObserver update: Adding testcases to TestSuite " + ts.getName());
+			logger.debug("\n\t ReportObserver update: Adding testcases to TestSuite " 
+						+ ts.getName());
 
 			testSuiteMap.get(ts.getName()).addAllTestCases(ts.getTestCaseList());
 		}
 		else
 		{
-			logger.debug("ReportObserver update: Adding ReportTestSuite " + ts.getName());
+			logger.debug("\n\t ReportObserver update: Adding ReportTestSuite " 
+						+ ts.getName() + "\n");
 
 			this.testSuiteMap.put(ts.getName(), ts);
 		}   

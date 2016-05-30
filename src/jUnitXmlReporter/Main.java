@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
+import usageDemoClasses.AnotherReportSubjectImpl;
 import usageDemoClasses.CheckedDemoClass;
 import usageDemoClasses.ReportSubjectImpl;
 
@@ -17,7 +18,7 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		logger.trace("---- Starting test run of JUnitXmlRepoter programm ----");
+		logger.trace("\n\t ---- Starting test run of JUnitXmlRepoter programm ----\n");
 
 		ReportObserver reportObserver = new ReportObserverImpl();
 		
@@ -37,13 +38,17 @@ public class Main
 			e.printStackTrace();
 		}
 		
-		logger.trace("---- Finished test run of JUnitXmlRepoter programm ----");
+		logger.trace("\n\t ---- Finished test run of JUnitXmlRepoter programm ----\n");
 	}
 
 	private static void runTests(ReportObserver reportObserver, CheckedDemoClass testSubject)
 	{
-		ReportSubjectImpl testingClass = new ReportSubjectImpl(testSubject);	
-		testingClass.registerReportObserver(reportObserver);
-		testingClass.testIsNotPalindrome();
+		ReportSubjectImpl palindromeTest = new ReportSubjectImpl(testSubject);	
+		palindromeTest.registerReportObserver(reportObserver);
+		palindromeTest.testIsNotPalindrome();
+		
+		AnotherReportSubjectImpl capitalLettersTest = new AnotherReportSubjectImpl(testSubject);	
+		capitalLettersTest.registerReportObserver(reportObserver);
+		capitalLettersTest.testContainsCapitals();;
 	}
 }

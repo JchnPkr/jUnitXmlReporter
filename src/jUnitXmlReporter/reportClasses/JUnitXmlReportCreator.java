@@ -43,7 +43,7 @@ public class JUnitXmlReportCreator
 		}
 		else
 		{
-			String msg = "Failed to create new  JUnitXmlReportCreator! "
+			String msg = "\n\t Failed to create new  JUnitXmlReportCreator! "
 						+ "Filename has to end with '.xml'";
 			
 			logger.error(msg);
@@ -82,7 +82,7 @@ public class JUnitXmlReportCreator
 
 	private void writeJUnitReportXmlFile()
 	{
-		logger.trace("Creating JUnit XML report file in: "
+		logger.trace("\n\t Creating JUnit XML report file in: "
 					+ reportFilePath.getAbsolutePath());
 		
 		this.xmlOutput.setFormat(Format.getPrettyFormat().setEncoding("UTF-8"));
@@ -94,7 +94,7 @@ public class JUnitXmlReportCreator
 		}
 		catch (IOException io)
 		{
-			logger.error("Failed to write JUnit XML report: "
+			logger.error("\n\t Failed to write JUnit XML report: "
 					+ io.getMessage());
 		}
 	}

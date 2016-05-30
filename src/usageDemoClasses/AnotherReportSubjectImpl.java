@@ -6,13 +6,13 @@ import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.observerClasses.ReportSubject;
 
-public class ReportSubjectImpl implements ReportSubject
+public class AnotherReportSubjectImpl implements ReportSubject
 {
 	private ReportObserver reportObserver;
 	private ReportTestSuite reportTestSuite;
 	private CheckedDemoClass testSubject;
 	
-	public ReportSubjectImpl(CheckedDemoClass testSubject)
+	public AnotherReportSubjectImpl(CheckedDemoClass testSubject)
 	{
 		this.testSubject = testSubject;
 		reportTestSuite = new ReportTestSuite(testSubject.getIdString());
@@ -45,30 +45,21 @@ public class ReportSubjectImpl implements ReportSubject
 		}
 	}
 	
-	public void testIsNotPalindrome()
+	public void testContainsCapitals()
 	{
 		for(String testedString: testSubject.getSomeStringArr())
 		{
-			String reversedString = reverseString(testedString);
+			String lowerCaseString = testedString.toLowerCase();
 			
-			if(!reversedString.equals(testedString.toLowerCase()))
+			if(!lowerCaseString.equals(testedString))
 			{
 				String msg = "someString '"+testedString
-				+"' is not a palindrome";
+				+"' contains capital letters";
 	
-				reportTestSuite.addTestCase(new FailureTestCase("isNotPalindromeTest", msg));
+				reportTestSuite.addTestCase(new FailureTestCase("containsCapitalsTest", msg));
 			}
 		}
 		
 		safeNotify();
-	}
-	
-	private String reverseString(String s)
-	{
-		StringBuilder strBuild = new StringBuilder();
-		strBuild.append(s.toLowerCase());
-		strBuild=strBuild.reverse(); 
-		
-		return strBuild.toString();
 	}
 }
