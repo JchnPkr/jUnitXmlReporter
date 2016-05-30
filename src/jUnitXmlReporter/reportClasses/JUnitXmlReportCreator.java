@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
+import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,7 +27,14 @@ public class JUnitXmlReportCreator
 	private XMLOutputter xmlOutput;
 	private Document jDoc;
 	private Element rootElement;
-
+	
+	public JUnitXmlReportCreator(Properties reportProps) throws InvalidReportFileFormat
+	{
+		this(reportProps.getProperty("filePath"), 
+				reportProps.getProperty("fileName"), 
+				reportProps.getProperty("appName"));
+	}
+	
 	public JUnitXmlReportCreator(String filePath, String fileName, String appName) throws InvalidReportFileFormat
 	{
 		if (validateFileName(fileName))
