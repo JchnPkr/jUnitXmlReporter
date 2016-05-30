@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.security.spec.InvalidParameterSpecException;
 import java.util.HashMap;
 
 import org.jdom2.Attribute;
@@ -14,6 +13,7 @@ import org.jdom2.Namespace;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
 import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
 
 public class JUnitXmlReportCreator
@@ -23,7 +23,7 @@ public class JUnitXmlReportCreator
 	private Document jDoc;
 	private Element rootElement;
 
-	public JUnitXmlReportCreator(String filePath, String fileName, String appName) throws InvalidParameterSpecException
+	public JUnitXmlReportCreator(String filePath, String fileName, String appName) throws InvalidReportFileFormat
 	{
 		if (validateFileName(fileName))
 		{
@@ -39,8 +39,9 @@ public class JUnitXmlReportCreator
 		}
 		else
 		{
-			String msg = "Failed to create new  JUnitXmlReporterListener! Filename" + "has to end with '.xml'";
-			throw new InvalidParameterSpecException(msg);
+			String msg = "Failed to create new  JUnitXmlReporterListener! "
+						+ "Filename" + "has to end with '.xml'";
+			throw new InvalidReportFileFormat(msg);
 		}
 	}
 
