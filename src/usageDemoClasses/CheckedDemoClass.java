@@ -1,8 +1,10 @@
 package usageDemoClasses;
 
-public class CheckedDemoClass
+import jUnitXmlReporter.observerClasses.CheckedClass;
+
+public class CheckedDemoClass implements CheckedClass
 {
-	private String idString;
+	private String id;
 	private String[] someStringArr;
 	
 	public CheckedDemoClass(String idString, String[] someStringArr)
@@ -11,14 +13,14 @@ public class CheckedDemoClass
 		this.setSomeStringArr(someStringArr);
 	}
 
-	public String getIdString()
+	public String getId()
 	{
-		return idString;
+		return id;
 	}
 
 	public void setIdString(String idString)
 	{
-		this.idString = idString;
+		this.id = idString;
 	}
 
 	public String[] getSomeStringArr()

@@ -8,9 +8,9 @@ import org.apache.logging.log4j.Logger;
 import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
-import usageDemoClasses.AnotherReportSubjectImpl;
+import usageDemoClasses.CapsChecker;
 import usageDemoClasses.CheckedDemoClass;
-import usageDemoClasses.ReportSubjectImpl;
+import usageDemoClasses.PalindromeChecker;
 
 public class Main
 {
@@ -43,12 +43,12 @@ public class Main
 
 	private static void runTests(ReportObserver reportObserver, CheckedDemoClass testSubject)
 	{
-		ReportSubjectImpl palindromeTest = new ReportSubjectImpl(testSubject);	
-		palindromeTest.registerReportObserver(reportObserver);
-		palindromeTest.testIsNotPalindrome();
+		PalindromeChecker palindromeCheck = new PalindromeChecker(testSubject, "isNotPalindrome");	
+		palindromeCheck.registerReportObserver(reportObserver);
+		palindromeCheck.runTest();
 		
-		AnotherReportSubjectImpl capitalLettersTest = new AnotherReportSubjectImpl(testSubject);	
-		capitalLettersTest.registerReportObserver(reportObserver);
-		capitalLettersTest.testContainsCapitals();;
+		CapsChecker capitalLettersCheck = new CapsChecker(testSubject, "containsCapitalLetters");	
+		capitalLettersCheck.registerReportObserver(reportObserver);
+		capitalLettersCheck.runTest();
 	}
 }
