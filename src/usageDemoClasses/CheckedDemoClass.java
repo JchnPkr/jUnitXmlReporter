@@ -1,11 +1,11 @@
 package usageDemoClasses;
 
-public class TestedClass
+public class CheckedDemoClass
 {
 	private String idString;
 	private String[] someStringArr;
 	
-	public TestedClass(String idString, String[] someStringArr)
+	public CheckedDemoClass(String idString, String[] someStringArr)
 	{
 		this.setIdString(idString);
 		this.setSomeStringArr(someStringArr);

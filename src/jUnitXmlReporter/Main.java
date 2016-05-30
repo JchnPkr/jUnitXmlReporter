@@ -2,10 +2,11 @@ package jUnitXmlReporter;
 
 import java.security.spec.InvalidParameterSpecException;
 
+import jUnitXmlReporter.observerClasses.ReportObserverImpl;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
-import usageDemoClasses.TestedClass;
-import usageDemoClasses.TestingClass;
+import usageDemoClasses.CheckedDemoClass;
+import usageDemoClasses.CheckingDemoClass;
 
 public class Main
 {
@@ -13,12 +14,12 @@ public class Main
 	{
 		System.out.println("---- Starting test run of JUnitXmlRepoter programm ----");
 
-		ReportObserver reportObserver = new ReportObserver();
-		TestingClass testingClass = new TestingClass();	
+		ReportObserver reportObserver = new ReportObserverImpl();
+		CheckingDemoClass testingClass = new CheckingDemoClass();	
 		testingClass.registerReportObserver(reportObserver);
 		
-		TestedClass testSubject1 = new TestedClass("firstSubjectToTest", new String[]{"Aibohphobia", "openSource"});
-		TestedClass testSubject2 = new TestedClass("secondSubjectToTest", new String[]{"foof", "observe"});
+		CheckedDemoClass testSubject1 = new CheckedDemoClass("firstSubjectToTest", new String[]{"Aibohphobia", "openSource"});
+		CheckedDemoClass testSubject2 = new CheckedDemoClass("secondSubjectToTest", new String[]{"foof", "observe"});
 
 		testingClass.testContainsCapital(testSubject1);
 		testingClass.testIsNotPalindrome(testSubject1);

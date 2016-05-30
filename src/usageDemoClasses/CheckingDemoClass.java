@@ -3,9 +3,9 @@ package usageDemoClasses;
 import jUnitXmlReporter.jUnitElementClasses.FailureTestCase;
 import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
 import jUnitXmlReporter.observerClasses.ReportObserver;
-import jUnitXmlReporter.observerClasses.ReportSubjectInterface;
+import jUnitXmlReporter.observerClasses.ReportSubject;
 
-public class TestingClass implements ReportSubjectInterface
+public class CheckingDemoClass implements ReportSubject
 {
 	private ReportObserver reportObserver;
 	
@@ -21,7 +21,7 @@ public class TestingClass implements ReportSubjectInterface
 		reportObserver.upDate(testSuite);
 	}
 	
-	public void testContainsCapital(TestedClass testSubject)
+	public void testContainsCapital(CheckedDemoClass testSubject)
 	{
 		ReportTestSuite suite = new ReportTestSuite(testSubject.getIdString());
 		
@@ -41,7 +41,7 @@ public class TestingClass implements ReportSubjectInterface
 		notifyObserver(suite);
 	}
 	
-	public void testIsNotPalindrome(TestedClass testSubject)
+	public void testIsNotPalindrome(CheckedDemoClass testSubject)
 	{
 		ReportTestSuite suite = new ReportTestSuite(testSubject.getIdString());
 
