@@ -9,7 +9,7 @@ import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
 import usageDemoClasses.CapsChecker;
-import usageDemoClasses.CheckedDemoClass;
+import usageDemoClasses.SomeClassToCheck;
 import usageDemoClasses.PalindromeChecker;
 
 public class Main
@@ -22,10 +22,10 @@ public class Main
 
 		ReportObserver reportObserver = new ReportObserverImpl();
 		
-		CheckedDemoClass testSubject1 = new CheckedDemoClass("firstSubjectToTest", new String[]{"Aibohphobia", "openSource"});
+		SomeClassToCheck testSubject1 = new SomeClassToCheck("firstSubjectToTest", new String[]{"Aibohphobia", "openSource"});
 		runTests(reportObserver, testSubject1);
 		
-		CheckedDemoClass testSubject2 = new CheckedDemoClass("secondSubjectToTest", new String[]{"subject", "observer"});
+		SomeClassToCheck testSubject2 = new SomeClassToCheck("secondSubjectToTest", new String[]{"subject", "observer"});
 		runTests(reportObserver, testSubject2);
 		
 		try
@@ -41,7 +41,7 @@ public class Main
 		logger.trace("\n\t ---- Finished test run of JUnitXmlRepoter programm ----\n");
 	}
 
-	private static void runTests(ReportObserver reportObserver, CheckedDemoClass testSubject)
+	private static void runTests(ReportObserver reportObserver, SomeClassToCheck testSubject)
 	{
 		PalindromeChecker palindromeCheck = new PalindromeChecker(testSubject, "isNotPalindrome");	
 		palindromeCheck.registerReportObserver(reportObserver);

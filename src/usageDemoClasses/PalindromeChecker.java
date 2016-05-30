@@ -14,7 +14,7 @@ public class PalindromeChecker extends AbstractReportSubjectImpl
 	@Override
 	protected void test()
 	{
-		for(String testedString: ((CheckedDemoClass) testSubject).getSomeStringArr())
+		for(String testedString: ((SomeClassToCheck) testSubject).getSomeStringArr())
 		{
 			String reversedString = reverseString(testedString);
 			
