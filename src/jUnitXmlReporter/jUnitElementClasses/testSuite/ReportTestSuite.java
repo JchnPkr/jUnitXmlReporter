@@ -1,8 +1,10 @@
-package jUnitXmlReporter.jUnitElementClasses;
+package jUnitXmlReporter.jUnitElementClasses.testSuite;
 
 import java.util.List;
 
 import org.jdom2.Element;
+
+import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
 
 public interface ReportTestSuite
 {

@@ -6,8 +6,8 @@ import org.jdom2.Element;
 import org.junit.Before;
 import org.junit.Test;
 
-import jUnitXmlReporter.jUnitElementClasses.AbstractTestCase;
-import jUnitXmlReporter.jUnitElementClasses.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.AbstractTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
 
 public class AbstractTestCaseClassTest
 {

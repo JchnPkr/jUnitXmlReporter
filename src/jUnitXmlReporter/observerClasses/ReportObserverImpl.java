@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
 
 
 

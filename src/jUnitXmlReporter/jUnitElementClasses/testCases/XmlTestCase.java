@@ -1,4 +1,4 @@
-package jUnitXmlReporter.jUnitElementClasses;
+package jUnitXmlReporter.jUnitElementClasses.testCases;
 
 import org.jdom2.Element;
 

@@ -1,10 +1,10 @@
 package jUnitXmlReporter.observerClasses;
 
 import jUnitXmlReporter.exceptionClasses.UnregisteredObserverException;
-import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
-import jUnitXmlReporter.jUnitElementClasses.ReportTestSuiteImpl;
-import jUnitXmlReporter.jUnitElementClasses.SystemOutTestCase;
-import jUnitXmlReporter.jUnitElementClasses.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.SystemOutTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuiteImpl;
 
 public abstract class AbstractReportSubjectImpl implements ReportSubject
 {

@@ -1,6 +1,6 @@
 package usageDemoClasses;
 
-import jUnitXmlReporter.jUnitElementClasses.FailureTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.FailureTestCase;
 import jUnitXmlReporter.observerClasses.AbstractReportSubjectImpl;
 import jUnitXmlReporter.observerClasses.CheckedClass;
 

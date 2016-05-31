@@ -7,9 +7,9 @@ import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 
-import jUnitXmlReporter.jUnitElementClasses.ErrorTestCase;
-import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
-import jUnitXmlReporter.jUnitElementClasses.ReportTestSuiteImpl;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ErrorTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuiteImpl;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.observerClasses.ReportObserverImpl;
 

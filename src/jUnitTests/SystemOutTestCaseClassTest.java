@@ -7,8 +7,8 @@ import org.jdom2.output.XMLOutputter;
 import org.junit.Before;
 import org.junit.Test;
 
-import jUnitXmlReporter.jUnitElementClasses.SystemOutTestCase;
-import jUnitXmlReporter.jUnitElementClasses.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.SystemOutTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
 
 public class SystemOutTestCaseClassTest
 {

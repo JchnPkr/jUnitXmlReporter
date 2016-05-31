@@ -2,7 +2,7 @@ package jUnitXmlReporter.observerClasses;
 
 import java.util.HashMap;
 
-import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
 
 public interface ReportObserver
 {

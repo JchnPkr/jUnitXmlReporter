@@ -1,4 +1,4 @@
-package jUnitXmlReporter.jUnitElementClasses;
+package jUnitXmlReporter.jUnitElementClasses.testSuite;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.filter.ElementFilter;
+
+import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
 
 public class ReportTestSuiteImpl implements ReportTestSuite
 {
