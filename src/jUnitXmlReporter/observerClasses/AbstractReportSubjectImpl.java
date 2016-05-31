@@ -4,6 +4,7 @@ import jUnitXmlReporter.exceptionClasses.UnregisteredObserverException;
 import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
 import jUnitXmlReporter.jUnitElementClasses.ReportTestSuiteImpl;
 import jUnitXmlReporter.jUnitElementClasses.SystemOutTestCase;
+import jUnitXmlReporter.jUnitElementClasses.XmlTestCase;
 
 public abstract class AbstractReportSubjectImpl implements ReportSubject
 {
@@ -60,6 +61,11 @@ public abstract class AbstractReportSubjectImpl implements ReportSubject
 	private void isPassed()
 	{
 		if (reportTestSuite.getTestCaseList().size() == 0)
-			reportTestSuite.addTestCase(new SystemOutTestCase(testName, "passed successsful"));
+			reportTestSuite.addTestCase(new SystemOutTestCase(testName, "passed successful"));
+	}
+	
+	protected void addTestCase(XmlTestCase testCase)
+	{
+		reportTestSuite.addTestCase(testCase);
 	}
 }

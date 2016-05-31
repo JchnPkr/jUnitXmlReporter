@@ -23,7 +23,7 @@ public class PalindromeChecker extends AbstractReportSubjectImpl
 				String msg = "someString '"+testedString
 				+"' is not a palindrome";
 	
-				reportTestSuite.addTestCase(new FailureTestCase(testName, msg));
+				addTestCase(new FailureTestCase(testName, msg));
 			}
 		}
 	}

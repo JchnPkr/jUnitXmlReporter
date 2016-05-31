@@ -23,7 +23,7 @@ public class CapsChecker extends AbstractReportSubjectImpl
 				String msg = "someString '"+testedString
 				+"' contains capital letters";
 	
-				reportTestSuite.addTestCase(new FailureTestCase(testName, msg));
+				addTestCase(new FailureTestCase(testName, msg));
 			}
 		}
 	}
