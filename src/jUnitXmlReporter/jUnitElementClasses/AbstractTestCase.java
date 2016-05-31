@@ -2,7 +2,7 @@ package jUnitXmlReporter.jUnitElementClasses;
 
 import org.jdom2.Element;
 
-public abstract class AbstractTestCase
+public abstract class AbstractTestCase implements XmlTestCase
 {
 	protected String name;
 	protected String message;
@@ -13,30 +13,36 @@ public abstract class AbstractTestCase
 		this.message = message;
 	}
 
+	@Override
 	public String getName()
 	{
 		return name;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 
+	@Override
 	public String getMessage()
 	{
 		return message;
 	}
 
+	@Override
 	public void setMessage(String message)
 	{
 		this.message = message;
 	}
 	
+	@Override
 	public String getType()
 	{
 		return this.getClass().getSimpleName();
 	}
 	
+	@Override
 	public abstract Element getJUnitTestCaseXmlElement();
 }

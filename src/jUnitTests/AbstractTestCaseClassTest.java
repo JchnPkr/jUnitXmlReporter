@@ -7,10 +7,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jUnitXmlReporter.jUnitElementClasses.AbstractTestCase;
+import jUnitXmlReporter.jUnitElementClasses.XmlTestCase;
 
 public class AbstractTestCaseClassTest
 {
-	private AbstractTestCase tc;
+	private XmlTestCase tc;
 	
 	@Before
 	public void setUp() throws Exception

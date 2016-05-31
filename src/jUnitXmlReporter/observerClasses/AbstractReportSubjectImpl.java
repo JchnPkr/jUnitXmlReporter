@@ -2,6 +2,7 @@ package jUnitXmlReporter.observerClasses;
 
 import jUnitXmlReporter.exceptionClasses.UnregisteredObserverException;
 import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
+import jUnitXmlReporter.jUnitElementClasses.ReportTestSuiteImpl;
 import jUnitXmlReporter.jUnitElementClasses.SystemOutTestCase;
 
 public abstract class AbstractReportSubjectImpl implements ReportSubject
@@ -14,7 +15,7 @@ public abstract class AbstractReportSubjectImpl implements ReportSubject
 	public AbstractReportSubjectImpl(CheckedClass testSubject, String testName)
 	{
 		this.testSubject = testSubject;
-		reportTestSuite = new ReportTestSuite(testSubject.getId());
+		reportTestSuite = new ReportTestSuiteImpl(testSubject.getId());
 		this.testName = testName;
 	}
 

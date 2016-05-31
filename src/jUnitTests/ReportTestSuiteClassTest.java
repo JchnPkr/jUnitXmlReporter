@@ -12,9 +12,10 @@ import org.jdom2.output.XMLOutputter;
 import org.junit.Before;
 import org.junit.Test;
 
-import jUnitXmlReporter.jUnitElementClasses.AbstractTestCase;
 import jUnitXmlReporter.jUnitElementClasses.ErrorTestCase;
 import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
+import jUnitXmlReporter.jUnitElementClasses.ReportTestSuiteImpl;
+import jUnitXmlReporter.jUnitElementClasses.XmlTestCase;
 
 public class ReportTestSuiteClassTest
 {
@@ -23,7 +24,7 @@ public class ReportTestSuiteClassTest
     @Before
     public void setUp() throws Exception
     {
-	ts = new ReportTestSuite("reportTestSuiteName");
+	ts = new ReportTestSuiteImpl("reportTestSuiteName");
     }
 
     @Test
@@ -42,7 +43,7 @@ public class ReportTestSuiteClassTest
 	ErrorTestCase expectedDoubleMessageTc = new ErrorTestCase("addedErrTcName", "addedTcMessage1"+"\n"+"addedTcMessage2");
 	ErrorTestCase expectedSingleMessageTc  = new ErrorTestCase("differentAddedErrTcName", "differentAddedTcMessage");
 
-	List<AbstractTestCase> actualTcList = ts.getTestCaseList();
+	List<XmlTestCase> actualTcList = ts.getTestCaseList();
 	
 	assertEquals(expectedDoubleMessageTc.getName(), actualTcList.get(0).getName());
 	assertEquals(expectedDoubleMessageTc.getMessage(), actualTcList.get(0).getMessage());
@@ -57,7 +58,7 @@ public class ReportTestSuiteClassTest
 	ts.addTestCase(new ErrorTestCase("addedErrTcName", "addedTcMessage2"));
 	ts.addTestCase(new ErrorTestCase("differentAddedErrTcName", "differentAddedTcMessage"));
 	
-	List<AbstractTestCase> actualTcList = ts.getTestCaseList();
+	List<XmlTestCase> actualTcList = ts.getTestCaseList();
 	
 	assertNotNull(actualTcList);
 	assertEquals(2, actualTcList.size());
@@ -79,7 +80,7 @@ public class ReportTestSuiteClassTest
     @Test
     public void testAddAllTestCases()
     {
-	List<AbstractTestCase> tcList = new ArrayList<>();
+	List<XmlTestCase> tcList = new ArrayList<>();
 	tcList.add(new ErrorTestCase("addedErrTcName", "addedTcMessage1"));
 	tcList.add(new ErrorTestCase("addedErrTcName", "addedTcMessage2"));
 	tcList.add(new ErrorTestCase("differentAddedErrTcName", "differentAddedTcMessage"));

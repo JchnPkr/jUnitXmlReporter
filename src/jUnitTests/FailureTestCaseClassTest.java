@@ -7,12 +7,12 @@ import org.jdom2.output.XMLOutputter;
 import org.junit.Before;
 import org.junit.Test;
 
-import jUnitXmlReporter.jUnitElementClasses.AbstractTestCase;
 import jUnitXmlReporter.jUnitElementClasses.FailureTestCase;
+import jUnitXmlReporter.jUnitElementClasses.XmlTestCase;
 
 public class FailureTestCaseClassTest
 {
-    private AbstractTestCase failTc;
+    private XmlTestCase failTc;
 	
 	@Before
 	public void setUp() throws Exception

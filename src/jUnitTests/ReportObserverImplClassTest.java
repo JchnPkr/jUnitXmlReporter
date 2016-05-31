@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import jUnitXmlReporter.jUnitElementClasses.ErrorTestCase;
 import jUnitXmlReporter.jUnitElementClasses.ReportTestSuite;
+import jUnitXmlReporter.jUnitElementClasses.ReportTestSuiteImpl;
 import jUnitXmlReporter.observerClasses.ReportObserver;
 import jUnitXmlReporter.observerClasses.ReportObserverImpl;
 
@@ -37,7 +38,7 @@ public class ReportObserverImplClassTest
 	@Test
 	public void testUpDate()
 	{
-		ReportTestSuite ts = new ReportTestSuite("reportTestSuite");
+		ReportTestSuite ts = new ReportTestSuiteImpl("reportTestSuite");
 		ts.addTestCase(new ErrorTestCase("errorTestCaseName", "errorTestCaseMessage"));
 
 		this.reportObserver.upDate(ts);
