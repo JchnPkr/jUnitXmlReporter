@@ -10,6 +10,10 @@ import org.junit.runners.Suite.SuiteClasses;
 	    AbstractTestCaseClassTest.class,
 	    ErrorTestCaseClassTest.class, 
 	    FailureTestCaseClassTest.class,
+	    JUnitXmlReportCreatorClassTest.class,
+	    ReportObserverImplClassTest.class,
+	    ReportPropertiesClassTest.class,
+	    ReportTestSuiteClassTest.class,
 	    SkippedTestCaseClassTest.class,
 	    SystemOutTestCaseClassTest.class
 	 })
