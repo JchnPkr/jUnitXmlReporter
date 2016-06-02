@@ -2,7 +2,6 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>jUnitXmlReporter</groupId>
   <artifactId>jUnitXmlReporter</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>jUnitXmlReporter</name>
   <description>observer collecting testsuites and testcases, providing jenkins / jUnit - conform xml report file</description>
   <properties>
@@ -144,4 +143,5 @@
   			<version>2.6</version>
   		</dependency>
   	</dependencies>
+  	<version>0.1</version>
 </project>
