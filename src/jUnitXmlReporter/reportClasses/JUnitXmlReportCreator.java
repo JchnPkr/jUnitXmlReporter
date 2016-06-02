@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
-import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,17 +29,17 @@ public class JUnitXmlReportCreator
 	private Document jDoc;
 	private Element rootElement;
 	
-	public JUnitXmlReportCreator(Properties reportProps) throws InvalidReportFileFormat
+	public JUnitXmlReportCreator(ReportProperties reportProps) throws InvalidReportFileFormat
 	{
-		this(reportProps.getProperty("filePath"), 
-				reportProps.getProperty("fileName"), 
-				reportProps.getProperty("appName"));
+		this(reportProps.getFilePath(), 
+				reportProps.getFileName(), 
+				reportProps.getAppName());
 	}
 	
 	public JUnitXmlReportCreator(String filePath, String fileName, String appName) throws InvalidReportFileFormat
 	{
-		if (validateFileName(fileName))
-		{
+		validateFileName(fileName);
+		
 			this.reportFilePath = new File(filePath);
 			
 			if(!this.reportFilePath.exists())
@@ -50,16 +49,6 @@ public class JUnitXmlReportCreator
 			this.xmlOutput = new XMLOutputter();
 			this.jDoc = new Document(new Element("testsuites"));
 			this.setRootElement(jDoc, appName);
-		}
-		else
-		{
-			String msg = "\n\t Failed to create new  JUnitXmlReportCreator! "
-						+ "Filename has to end with '.xml'";
-			
-			logger.error(msg);
-			
-			throw new InvalidReportFileFormat(msg);
-		}
 	}
 
 	private void setRootElement(Document jDoc, String appName)
@@ -73,9 +62,15 @@ public class JUnitXmlReportCreator
 		this.rootElement.setAttribute("name", appName);
 	}
 
-	private boolean validateFileName(String fileName)
+	private void validateFileName(String fileName) throws InvalidReportFileFormat
 	{
-		return fileName.endsWith(".xml");
+		if(!fileName.endsWith(".xml"))
+		{
+			String msg = "\n\t Failed to create new  JUnitXmlReportCreator! "
+						+ "Filename has to end with '.xml'\n";
+			
+			throw new InvalidReportFileFormat(msg);
+		}
 	}
 
 	public void createJUnitReport(HashMap<String, ReportTestSuite> testSuiteMap)

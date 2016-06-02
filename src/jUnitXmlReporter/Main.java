@@ -2,8 +2,6 @@ package jUnitXmlReporter;
 
 import jUnitXmlReporter.observerClasses.ReportObserverImpl;
 
-import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,7 +29,7 @@ public class Main
 		SomeClassToCheck testSubject2 = new SomeClassToCheck("secondSubjectToTest", new String[]{"subject", "observer"});
 		runTests(reportObserver, testSubject2);
 		
-		Properties reportProps = new ReportProperties("./src/main/resources/report.properties").getReportProperties();		
+		ReportProperties reportProps = new ReportProperties("./src/main/resources/report.properties");		
 		writeJUnitXmlReport(reportObserver, reportProps);
 		
 		logger.trace("\n\t ---- Finished test run of JUnitXmlRepoter programm ----\n");
@@ -48,16 +46,18 @@ public class Main
 		capitalLettersCheck.runTest();
 	}
 	
-	private static void writeJUnitXmlReport(ReportObserver reportObserver, Properties reportProps)
+	private static void writeJUnitXmlReport(ReportObserver reportObserver, ReportProperties reportProps)
 	{
+		JUnitXmlReportCreator reporter;
+		
 		try
 		{
-			JUnitXmlReportCreator reporter = new JUnitXmlReportCreator(reportProps);
+			reporter = new JUnitXmlReportCreator(reportProps);
 			reporter.createJUnitReport(reportObserver.getTestSuiteMap());
 		}
 		catch (InvalidReportFileFormat e)
 		{
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 }

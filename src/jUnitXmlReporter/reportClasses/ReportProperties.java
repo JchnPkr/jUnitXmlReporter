@@ -5,30 +5,43 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 public class ReportProperties
 {
-	private String propPath;
+	private static final Logger logger = LogManager.getLogger(ReportProperties.class.getName());
+	
+	private Properties reportProps;
 	
 	public ReportProperties(String propPath)
 	{
-		super();
-		this.propPath = propPath;
+		reportProps = setReportProperties(propPath);
 	}
 
-	public Properties getReportProperties()
+	private Properties setReportProperties(String propPath)
 	{
-		Properties reportProps = new Properties();
+		Properties props = new Properties();
+		props.setProperty("filePath", "notSet");
+		props.setProperty("fileName", "notSet");
+		props.setProperty("appName", "notSet");
+
 		InputStream input = null;
 
 		try 
 		{
 			input = new FileInputStream(propPath);
-			reportProps.load(input);
-
+			props.load(input);
 		} 
 		catch (IOException ex) 
 		{
-			ex.printStackTrace();
+			logger.error(ex.getMessage());
+		} 
+		catch (NullPointerException ex) 
+		{
+			logger.error("\n\tCatched NullpointerException! Message: "
+						+ ex.getMessage());
 		} 
 		finally 
 		{
@@ -40,11 +53,28 @@ public class ReportProperties
 				} 
 				catch (IOException e) 
 				{
-					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 			}
 		}
 		
-		return reportProps;
+		return props;
 	}
+
+	public String getFilePath()
+	{
+		return reportProps.getProperty("filePath");
+	}
+
+	public String getFileName()
+	{
+		return reportProps.getProperty("fileName");
+	}
+
+	public String getAppName()
+	{
+		return reportProps.getProperty("appName");
+	}
+	
+	
 }
