@@ -40,7 +40,7 @@ public class ReportTestSuiteClassTest
 	ts.addTestCase(new ErrorTestCase("addedErrTcName", "addedTcMessage2"));
 	ts.addTestCase(new ErrorTestCase("differentAddedErrTcName", "differentAddedTcMessage"));
 	
-	ErrorTestCase expectedDoubleMessageTc = new ErrorTestCase("addedErrTcName", "addedTcMessage1"+"\n"+"addedTcMessage2");
+	ErrorTestCase expectedDoubleMessageTc = new ErrorTestCase("addedErrTcName", "addedTcMessage1"+", \n"+"addedTcMessage2");
 	ErrorTestCase expectedSingleMessageTc  = new ErrorTestCase("differentAddedErrTcName", "differentAddedTcMessage");
 
 	List<XmlTestCase> actualTcList = ts.getTestCaseList();
@@ -110,7 +110,7 @@ public class ReportTestSuiteClassTest
 	Element suite = new Element("testsuite");	
 	
 	Element tcElement1 = new Element("testcase").setAttribute("name", "addedErrTcName");
-	Element err1 = new Element("error").addContent("addedTcMessage1"+"\n"+"addedTcMessage2");
+	Element err1 = new Element("error").addContent("addedTcMessage1"+", \n"+"addedTcMessage2");
 	tcElement1.addContent(err1);
 	
 	Element tcElement2 = new Element("testcase").setAttribute("name", "differentAddedErrTcName");
