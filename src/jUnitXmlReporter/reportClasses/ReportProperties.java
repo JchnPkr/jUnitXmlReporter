@@ -75,6 +75,4 @@ public class ReportProperties
 	{
 		return reportProps.getProperty("appName");
 	}
-	
-	
 }
