@@ -16,96 +16,96 @@ import jUnitXmlReporter.reportClasses.ReportProperties;
 
 public class ReportPropertiesClassTest
 {
-    private static final String testPropertiesFilePath = "./src/jUnitTests/invalidTestConfig.properties";
+	private static final String testPropertiesFilePath = "./src/jUnitTests/invalidTestConfig.properties";
 
-    private ReportProperties reportProperties;
+	private ReportProperties reportProperties;
 
-    @Before
-    public void setUp() throws Exception
-    {
-	createInvalidPropertiesFile(testPropertiesFilePath);
-    }
-
-    private void createInvalidPropertiesFile(String path)
-    {
-	Properties prop = new Properties();
-	OutputStream output = null;
-
-	try
+	@Before
+	public void setUp() throws Exception
 	{
-	    output = new FileOutputStream(path);
-
-	    prop.setProperty("someInvalidKey", "someInvalidValue");
-
-	    prop.store(output, "created by jUnit test");
+		createInvalidPropertiesFile(testPropertiesFilePath);
 	}
-	catch (IOException io)
+
+	private void createInvalidPropertiesFile(String path)
 	{
-	    io.printStackTrace();
-	}
-	finally
-	{
-	    if (output != null)
-	    {
+		Properties prop = new Properties();
+		OutputStream output = null;
+
 		try
 		{
-		    output.close();
+			output = new FileOutputStream(path);
+
+			prop.setProperty("someInvalidKey", "someInvalidValue");
+
+			prop.store(output, "created by jUnit test");
 		}
-		catch (IOException e)
+		catch (IOException io)
 		{
-		    e.printStackTrace();
+			io.printStackTrace();
 		}
-	    }
+		finally
+		{
+			if (output != null)
+			{
+				try
+				{
+					output.close();
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
 	}
-    }
-    
-    @After
-    public void cleanUp()
-    {
-	deleteInvalidPropertiesFile(testPropertiesFilePath);
-    }
-    
-    private void deleteInvalidPropertiesFile(String path)
-    {
-	try
+
+	@After
+	public void cleanUp()
 	{
-	    File file = new File(path);
-
-	    if (file.exists())
-		file.delete();
+		deleteInvalidPropertiesFile(testPropertiesFilePath);
 	}
-	catch (Exception e)
+
+	private void deleteInvalidPropertiesFile(String path)
 	{
-	    e.printStackTrace();
+		try
+		{
+			File file = new File(path);
+
+			if (file.exists())
+				file.delete();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
-    }
-    
-    @Test
-    public void testReportPropertiesNullInit()
-    {
-	reportProperties = new ReportProperties(null);
-	basicClassCheck();
-    }
 
-    @Test
-    public void testReportPropertiesNoFile()
-    {
-	reportProperties = new ReportProperties("noSuchFile");
-	basicClassCheck();
-    }
+	@Test
+	public void testReportPropertiesNullInit()
+	{
+		reportProperties = new ReportProperties(null);
+		basicClassCheck();
+	}
 
-    @Test
-    public void testReportPropertiesInvalidFile()
-    {
-	reportProperties = new ReportProperties(testPropertiesFilePath);
-	basicClassCheck();
-    }
+	@Test
+	public void testReportPropertiesNoFile()
+	{
+		reportProperties = new ReportProperties("noSuchFile");
+		basicClassCheck();
+	}
 
-    private void basicClassCheck()
-    {
-	assertNotNull(reportProperties);
-	assertNotNull(reportProperties.getFilePath());
-	assertNotNull(reportProperties.getFileName());
-	assertNotNull(reportProperties.getAppName());
-    }
+	@Test
+	public void testReportPropertiesInvalidFile()
+	{
+		reportProperties = new ReportProperties(testPropertiesFilePath);
+		basicClassCheck();
+	}
+
+	private void basicClassCheck()
+	{
+		assertNotNull(reportProperties);
+		assertNotNull(reportProperties.getFilePath());
+		assertNotNull(reportProperties.getFileName());
+		assertNotNull(reportProperties.getAppName());
+	}
 }
