@@ -21,8 +21,7 @@ public class AbstractTestCaseClassTest
 			@Override
 			public Element getJUnitTestCaseXmlElement()
 			{
-				// TODO Auto-generated method stub
-				return null;
+				return new Element("test");
 			}
 		};
 	}
@@ -63,5 +62,11 @@ public class AbstractTestCaseClassTest
 	public void testGetType()
 	{
 		assertEquals("", tc.getType());
+	}
+	
+	@Test
+	public void getJUnitTestCaseXmlElement()
+	{
+		assertNotNull(tc.getJUnitTestCaseXmlElement());
 	}
 }

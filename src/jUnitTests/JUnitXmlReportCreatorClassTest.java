@@ -15,70 +15,70 @@ import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
 
 public class JUnitXmlReportCreatorClassTest
 {
-    private static final String testReportFilePath = "./src/jUnitTests";
-    private static final String testReportFileName = "testReportTestFile.xml";
+	private static final String testReportFilePath = "./src/jUnitTests";
+	private static final String testReportFileName = "testReportTestFile.xml";
 
-    private JUnitXmlReportCreator reportCreator;
-    
-    @Before
-    public void setUp() throws Exception
-    {
-	reportCreator = new JUnitXmlReportCreator(testReportFilePath, testReportFileName, "testName");
-    }
+	private JUnitXmlReportCreator reportCreator;
 
-    @After
-    public void cleanUp()
-    {
-	deleteTestReportFile(testReportFilePath + "/" + testReportFileName);
-    }
-    
-    private void deleteTestReportFile(String path)
-    {
-	try
+	@Before
+	public void setUp() throws Exception
 	{
-	    File file = new File(path);
+		reportCreator = new JUnitXmlReportCreator(testReportFilePath, testReportFileName, "testName");
+	}
 
-	    if (file.exists())
-		file.delete();
-	}
-	catch (Exception e)
+	@After
+	public void cleanUp()
 	{
-	    e.printStackTrace();
+		deleteTestReportFile(testReportFilePath + "/" + testReportFileName);
 	}
-    }
-    
-    @Test(expected = NullPointerException.class)
-    public void testJUnitXmlReportCreatorReportPropertiesNPException()
-    {
-	try
-	{
-	    reportCreator = new JUnitXmlReportCreator(null);
-	}
-	catch (InvalidReportFileFormat e)
-	{
-	    e.printStackTrace();
-	}
-    }
 
-    @Test(expected = InvalidReportFileFormat.class)
-    public void testJUnitXmlReportCreatorReportPropertiesInvalidFormatException() throws InvalidReportFileFormat
-    {
-	reportCreator = new JUnitXmlReportCreator(testReportFilePath, "invalidFileFormat.txt", "testName");
-    }
-    
-    @Test
-    public void testJUnitXmlReportCreatorStringStringString()
-    {
-	assertNotNull(reportCreator);
-    }
+	private void deleteTestReportFile(String path)
+	{
+		try
+		{
+			File file = new File(path);
 
-    @Test
-    public void testCreateJUnitReport()
-    {
-	File file = new File(testReportFilePath + "/" + testReportFileName);
-	
-	reportCreator.createJUnitReport(new HashMap<String, ReportTestSuite>());
-	
-	assertTrue(file.exists());
-    }
+			if (file.exists())
+				file.delete();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void testJUnitXmlReportCreatorReportPropertiesNPException()
+	{
+		try
+		{
+			reportCreator = new JUnitXmlReportCreator(null);
+		}
+		catch (InvalidReportFileFormat e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@Test(expected = InvalidReportFileFormat.class)
+	public void testJUnitXmlReportCreatorReportPropertiesInvalidFormatException() throws InvalidReportFileFormat
+	{
+		reportCreator = new JUnitXmlReportCreator(testReportFilePath, "invalidFileFormat.txt", "testName");
+	}
+
+	@Test
+	public void testJUnitXmlReportCreatorStringStringString()
+	{
+		assertNotNull(reportCreator);
+	}
+
+	@Test
+	public void testCreateJUnitReport()
+	{
+		File file = new File(testReportFilePath + "/" + testReportFileName);
+
+		reportCreator.createJUnitReport(new HashMap<String, ReportTestSuite>());
+
+		assertTrue(file.exists());
+	}
 }
