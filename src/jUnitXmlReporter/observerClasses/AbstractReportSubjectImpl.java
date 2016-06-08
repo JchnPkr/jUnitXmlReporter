@@ -29,14 +29,28 @@ public abstract class AbstractReportSubjectImpl implements ReportSubject
 		reportObserver = observer;
 	}
 
+	/**
+	 * This method should be overridden with the actual test 
+	 * that should be performed by the actual implemementation
+	 * when {@link #runTest()} is called.
+	 * 
+	 * If the test fails use {@link #addTestCase(XmlTestCase)} 
+	 * to add an appropriate testcase to {@link #reportTestSuite}
+	 */
 	protected abstract void test();
 	
+	/**
+	 * This method should be called to run the actual test.
+	 */
 	public void runTest()
 	{
 		test();
 		safeNotify();
 	}
 
+	/**
+	 * Convenience method handling exception from {@link #notify()}
+	 */
 	private void safeNotify()
 	{
 		try
@@ -58,15 +72,23 @@ public abstract class AbstractReportSubjectImpl implements ReportSubject
 			reportObserver.upDate(reportTestSuite);
 		}
 		else
-			throw new UnregisteredObserverException("Notification failed!");
+			throw new UnregisteredObserverException("Notification failed! No Observer registered!");
 	}
 	
+	/**
+	 * Convenience method called in {@link #notifyObserver()}
+	 */
 	private void isPassed()
 	{
 		if (reportTestSuite.getTestCaseList().size() == 0)
 			reportTestSuite.addTestCase(new SystemOutTestCase(testName, "passed successful"));
 	}
 	
+	/**
+	 * This method should be used in {@link #test()} if a test fails.
+	 * 
+	 * @param testCase testCase to add to {@link #reportTestSuite}
+	 */
 	protected void addTestCase(XmlTestCase testCase)
 	{
 		reportTestSuite.addTestCase(testCase);

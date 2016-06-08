@@ -3,7 +3,7 @@ package jUnitXmlReporter.jUnitElementClasses.testCases;
 import org.jdom2.Element;
 
 /**
- * Interface of the testcases used in {@link ReportTestSuite}
+ * Interface of the testcases used in {@link jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite}
  */
 public interface XmlTestCase
 {
