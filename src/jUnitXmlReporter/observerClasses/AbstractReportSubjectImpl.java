@@ -6,6 +6,9 @@ import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuiteImpl;
 
+/**
+ * Basic implementation to be extended by classes running tests
+ */
 public abstract class AbstractReportSubjectImpl implements ReportSubject
 {
 	private ReportObserver reportObserver;

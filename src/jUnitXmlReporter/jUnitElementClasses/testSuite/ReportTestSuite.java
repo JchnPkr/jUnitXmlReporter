@@ -5,7 +5,11 @@ import java.util.List;
 import org.jdom2.Element;
 
 import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.observerClasses.ReportObserver;
 
+/**
+ * Interface used in {@link ReportObserver}
+ */
 public interface ReportTestSuite
 {
 

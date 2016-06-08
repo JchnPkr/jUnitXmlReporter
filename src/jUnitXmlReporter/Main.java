@@ -13,6 +13,13 @@ import usageDemoClasses.CapsChecker;
 import usageDemoClasses.SomeClassToCheck;
 import usageDemoClasses.PalindromeChecker;
 
+/**
+ * ---Simple demo of usage---
+ * - Elements in a list of an example class get tested by two different concerns.
+ * - Report file gets created by default values and with testresults.
+ * - Log file gets created by default values and log messages from all
+ *   classes of concern.
+ */
 public class Main
 {
 	private static final Logger logger = LogManager.getLogger();

@@ -4,6 +4,9 @@ import jUnitXmlReporter.jUnitElementClasses.testCases.FailureTestCase;
 import jUnitXmlReporter.observerClasses.AbstractReportSubjectImpl;
 import jUnitXmlReporter.observerClasses.CheckedClass;
 
+/**
+ * Demo implementation of a testing class
+ */
 public class PalindromeChecker extends AbstractReportSubjectImpl
 {
 	public PalindromeChecker(CheckedClass testSubject, String testName)

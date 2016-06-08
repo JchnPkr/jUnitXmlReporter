@@ -2,6 +2,9 @@ package jUnitXmlReporter.jUnitElementClasses.testCases;
 
 import org.jdom2.Element;
 
+/**
+ * Interface of the testcases used in {@link ReportTestSuite}
+ */
 public interface XmlTestCase
 {
 	String getName();

@@ -2,6 +2,9 @@ package jUnitXmlReporter.jUnitElementClasses.testCases;
 
 import org.jdom2.Element;
 
+/**
+ * Default testcase implementation
+ */
 public class SkippedTestCase extends AbstractTestCase
 {
 	public SkippedTestCase(String name, String message)

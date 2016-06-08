@@ -17,7 +17,12 @@ import org.jdom2.output.XMLOutputter;
 
 import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
+import jUnitXmlReporter.observerClasses.ReportObserver;
 
+/**
+ * Class to create report file and write testsuites
+ * collected by {@link ReportObserver} to it.
+ */
 public class JUnitXmlReportCreator
 {
     private static final Logger logger = LogManager.getLogger(JUnitXmlReportCreator.class.getName());

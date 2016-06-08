@@ -2,6 +2,9 @@ package jUnitXmlReporter.jUnitElementClasses.testCases;
 
 import org.jdom2.Element;
 
+/**
+ * Default testcase implementation
+ */
 public class ErrorTestCase extends AbstractTestCase
 {
 	public ErrorTestCase(String name, String message)

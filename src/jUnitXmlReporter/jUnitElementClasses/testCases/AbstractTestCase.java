@@ -2,6 +2,9 @@ package jUnitXmlReporter.jUnitElementClasses.testCases;
 
 import org.jdom2.Element;
 
+/**
+ * Abstract implementation of default testcase properties
+ */
 public abstract class AbstractTestCase implements XmlTestCase
 {
 	protected String name;

@@ -9,6 +9,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
+/**
+ * Used for failsave import of report file properties
+ * for {@link JUnitXmlReportCreator}
+ */
 public class ReportProperties
 {
 	private static final Logger logger = LogManager.getLogger(ReportProperties.class.getName());

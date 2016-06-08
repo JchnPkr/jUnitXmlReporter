@@ -2,6 +2,9 @@ package usageDemoClasses;
 
 import jUnitXmlReporter.observerClasses.CheckedClass;
 
+/**
+ * Demo implementation of a class under test
+ */
 public class SomeClassToCheck implements CheckedClass
 {
 	private String id;

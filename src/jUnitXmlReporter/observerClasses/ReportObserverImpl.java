@@ -9,6 +9,9 @@ import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
 
 
 
+/**
+ * Basic {@link ReportObserver} implementation
+ */
 public class ReportObserverImpl implements ReportObserver
 {
 	private static final Logger logger = LogManager.getLogger(ReportObserverImpl.class.getName());

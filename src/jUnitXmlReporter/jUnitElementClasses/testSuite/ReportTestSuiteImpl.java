@@ -12,6 +12,9 @@ import org.jdom2.filter.ElementFilter;
 
 import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
 
+/**
+ * Implementation giving default testsuite format
+ */
 public class ReportTestSuiteImpl implements ReportTestSuite
 {
 	private static final Logger logger = LogManager.getLogger(ReportTestSuiteImpl.class.getName());
