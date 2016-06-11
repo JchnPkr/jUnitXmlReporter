@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -57,12 +56,6 @@ public class AbstractReportSubjectImplClassTest
 		reportSubject.notifyObserver();
 	}
 
-	@Ignore
-	public void testTest()
-	{
-		//gets tested in testRunTest()
-	}
-
 	@Test
 	public void testRunTest()
 	{	
@@ -89,11 +82,5 @@ public class AbstractReportSubjectImplClassTest
 	public void testNotifyObserverException() throws UnregisteredObserverException
 	{
 		((AbstractReportSubjectImpl) reportSubject).notifyObserver();
-	}
-
-	@Ignore
-	public void testAddTestCase()
-	{
-		//gets tested in testRunTest()
 	}
 }

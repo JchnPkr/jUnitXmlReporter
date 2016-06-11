@@ -27,6 +27,7 @@ public class ReportObserverImplClassTest
 	public void testReportObserverImpl()
 	{
 		assertNotNull(reportObserver);
+		assertNotNull(reportObserver.getTestSuiteMap());
 	}
 
 	@Test
@@ -36,7 +37,7 @@ public class ReportObserverImplClassTest
 	}
 
 	@Test
-	public void testUpDate()
+	public void testTestSuiteUpDate()
 	{
 		ReportTestSuite ts = new ReportTestSuiteImpl("reportTestSuite");
 		ts.addTestCase(new ErrorTestCase("errorTestCaseName", "errorTestCaseMessage"));
@@ -47,5 +48,23 @@ public class ReportObserverImplClassTest
 		ReportTestSuite expectedTs = testSuiteMap.get("reportTestSuite");
 
 		assertEquals(ts, expectedTs);
+	}
+	
+	@Test
+	public void testTestCaseAppendUpDate()
+	{
+		ReportTestSuite ts = new ReportTestSuiteImpl("reportTestSuite");
+		ts.addTestCase(new ErrorTestCase("errorTestCaseName", "errorTestCaseMessage"));
+
+		this.reportObserver.upDate(ts);
+		
+		ts.addTestCase(new ErrorTestCase("anotherErrorTestCaseName", "anotherErrorTestCaseMessage"));
+		
+		this.reportObserver.upDate(ts);
+		
+		HashMap<String, ReportTestSuite> testSuiteMap = reportObserver.getTestSuiteMap();		
+		ReportTestSuite expectedTs = testSuiteMap.get("reportTestSuite");
+		
+		assertEquals(2, expectedTs.getTestCaseList().size());
 	}
 }

@@ -34,30 +34,10 @@ public class JUnitXmlReportCreatorClassTest
 
 	private void deleteTestReportFile(String path)
 	{
-		try
-		{
 			File file = new File(path);
 
 			if (file.exists())
 				file.delete();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	@Test(expected = NullPointerException.class)
-	public void testJUnitXmlReportCreatorReportPropertiesNPException()
-	{
-		try
-		{
-			reportCreator = new JUnitXmlReportCreator(null);
-		}
-		catch (InvalidReportFileFormat e)
-		{
-			e.printStackTrace();
-		}
 	}
 
 	@Test(expected = InvalidReportFileFormat.class)

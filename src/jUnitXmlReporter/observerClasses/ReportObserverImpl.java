@@ -32,19 +32,37 @@ public class ReportObserverImpl implements ReportObserver
 	@Override
 	public void upDate(ReportTestSuite ts)
 	{		
+		if(ts != null)
+		{
+			upDateTestSuiteMap(ts);  
+		}
+	}
+
+	private void upDateTestSuiteMap(ReportTestSuite ts)
+	{
 		if(testSuiteMap.containsKey(ts.getName()))
 		{
-			logger.debug("\n\t ReportObserver update: Adding testcases to TestSuite " 
-						+ ts.getName());
-
-			testSuiteMap.get(ts.getName()).addAllTestCases(ts.getTestCaseList());
+			appendTestCases(ts);
 		}
 		else
 		{
-			logger.debug("\n\t ReportObserver update: Adding ReportTestSuite " 
-						+ ts.getName() + "\n");
+			addTestsuite(ts);
+		}
+	}
 
-			this.testSuiteMap.put(ts.getName(), ts);
-		}   
+	private void appendTestCases(ReportTestSuite ts)
+	{
+		logger.debug("\n\t ReportObserver update: Adding testcases to TestSuite " 
+					+ ts.getName());
+
+		testSuiteMap.get(ts.getName()).addAllTestCases(ts.getTestCaseList());
+	}
+
+	private void addTestsuite(ReportTestSuite ts)
+	{
+		logger.debug("\n\t ReportObserver update: Adding ReportTestSuite " 
+					+ ts.getName() + "\n");
+
+		this.testSuiteMap.put(ts.getName(), ts);
 	}
 }

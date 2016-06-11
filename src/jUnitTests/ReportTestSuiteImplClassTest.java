@@ -17,7 +17,7 @@ import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuiteImpl;
 
-public class ReportTestSuiteClassTest
+public class ReportTestSuiteImplClassTest
 {
     private ReportTestSuite ts;
     

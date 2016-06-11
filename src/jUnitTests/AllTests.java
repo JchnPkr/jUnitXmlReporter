@@ -14,7 +14,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	    JUnitXmlReportCreatorClassTest.class,
 	    ReportObserverImplClassTest.class,
 	    ReportPropertiesClassTest.class,
-	    ReportTestSuiteClassTest.class,
+	    ReportTestSuiteImplClassTest.class,
 	    SkippedTestCaseClassTest.class,
 	    SystemOutTestCaseClassTest.class
 	 })

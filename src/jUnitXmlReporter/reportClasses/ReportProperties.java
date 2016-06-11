@@ -26,10 +26,7 @@ public class ReportProperties
 
 	private Properties setReportProperties(String propPath)
 	{
-		Properties props = new Properties();
-		props.setProperty("filePath", "notSet");
-		props.setProperty("fileName", "notSet");
-		props.setProperty("appName", "notSet");
+		Properties props = createDefaultProperties();
 
 		InputStream input = null;
 
@@ -62,6 +59,15 @@ public class ReportProperties
 			}
 		}
 		
+		return props;
+	}
+
+	private Properties createDefaultProperties()
+	{
+		Properties props = new Properties();
+		props.setProperty("filePath", "notSet");
+		props.setProperty("fileName", "notSet");
+		props.setProperty("appName", "notSet");
 		return props;
 	}
 
