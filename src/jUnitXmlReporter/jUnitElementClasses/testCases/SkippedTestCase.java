@@ -12,6 +12,11 @@ public class SkippedTestCase extends DefaultTestCase
 		super(name, message);
 	}
 
+	public SkippedTestCase(String message)
+	{
+		super("defaultName", message);
+	}
+	
 	@Override
 	public Element getJUnitTestCaseXmlElement()
 	{

@@ -26,7 +26,7 @@ public class CapsChecker extends DefaultReportSubject
 				String msg = "someString '"+testedString
 				+"' contains capital letters";
 	
-				addTestCase(new FailureTestCase(testName, msg));
+				addTestCase(new FailureTestCase(msg));
 			}
 		}
 	}

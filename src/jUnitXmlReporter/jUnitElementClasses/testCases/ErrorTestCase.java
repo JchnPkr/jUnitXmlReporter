@@ -12,6 +12,11 @@ public class ErrorTestCase extends DefaultTestCase
 		super(name, message);
 	}
 
+	public ErrorTestCase(String message)
+	{
+		super("defaultName", message);
+	}
+	
 	@Override
 	public Element getJUnitTestCaseXmlElement()
 	{

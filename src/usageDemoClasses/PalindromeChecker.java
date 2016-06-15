@@ -26,7 +26,7 @@ public class PalindromeChecker extends DefaultReportSubject
 				String msg = "someString '"+testedString
 				+"' is not a palindrome";
 	
-				addTestCase(new FailureTestCase(testName, msg));
+				addTestCase(new FailureTestCase(msg));
 			}
 		}
 	}

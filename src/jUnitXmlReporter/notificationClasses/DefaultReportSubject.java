@@ -91,6 +91,7 @@ public abstract class DefaultReportSubject implements ReportSubject
 	 */
 	protected void addTestCase(ReportTestCase testCase)
 	{
+		testCase.setName(testName);
 		reportTestSuite.addTestCase(testCase);
 	}
 }
