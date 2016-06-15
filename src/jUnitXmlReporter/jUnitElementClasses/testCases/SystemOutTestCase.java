@@ -11,7 +11,12 @@ public class SystemOutTestCase extends DefaultTestCase
 	{
 		super(name, message);
 	}
-
+	
+	public SystemOutTestCase(String message)
+	{
+		super("defaultName", message);
+	}
+	
 	@Override
 	public Element getJUnitTestCaseXmlElement()
 	{
