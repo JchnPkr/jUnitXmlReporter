@@ -3,6 +3,6 @@ jUnitXmlReporter
 jUnitXmlReporter.exceptionClasses
 jUnitXmlReporter.jUnitElementClasses.testCases
 jUnitXmlReporter.jUnitElementClasses.testSuite
-jUnitXmlReporter.observerClasses
+jUnitXmlReporter.notificationClasses
 jUnitXmlReporter.reportClasses
 usageDemoClasses
