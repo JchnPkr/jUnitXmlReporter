@@ -5,7 +5,7 @@ import org.jdom2.Element;
 /**
  * Default testcase implementation
  */
-public class SkippedTestCase extends AbstractTestCase
+public class SkippedTestCase extends DefaultTestCase
 {
 	public SkippedTestCase(String name, String message)
 	{

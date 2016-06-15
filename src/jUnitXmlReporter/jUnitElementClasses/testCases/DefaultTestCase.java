@@ -5,12 +5,12 @@ import org.jdom2.Element;
 /**
  * Abstract implementation of default testcase properties
  */
-public abstract class AbstractTestCase implements XmlTestCase
+public abstract class DefaultTestCase implements ReportTestCase
 {
 	protected String name;
 	protected String message;
 	
-	public AbstractTestCase(String name, String message)
+	public DefaultTestCase(String name, String message)
 	{
 		this.name = name;
 		this.message = message;

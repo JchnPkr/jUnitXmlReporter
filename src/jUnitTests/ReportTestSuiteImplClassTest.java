@@ -13,9 +13,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jUnitXmlReporter.jUnitElementClasses.testCases.ErrorTestCase;
-import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
-import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuiteImpl;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.DefaultReportTestSuite;
 
 public class ReportTestSuiteImplClassTest
 {
@@ -24,7 +24,7 @@ public class ReportTestSuiteImplClassTest
     @Before
     public void setUp() throws Exception
     {
-	ts = new ReportTestSuiteImpl("reportTestSuiteName");
+	ts = new DefaultReportTestSuite("reportTestSuiteName");
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ReportTestSuiteImplClassTest
 	ErrorTestCase expectedDoubleMessageTc = new ErrorTestCase("addedErrTcName", "addedTcMessage1"+", \n"+"addedTcMessage2");
 	ErrorTestCase expectedSingleMessageTc  = new ErrorTestCase("differentAddedErrTcName", "differentAddedTcMessage");
 
-	List<XmlTestCase> actualTcList = ts.getTestCaseList();
+	List<ReportTestCase> actualTcList = ts.getTestCaseList();
 	
 	assertEquals(expectedDoubleMessageTc.getName(), actualTcList.get(0).getName());
 	assertEquals(expectedDoubleMessageTc.getMessage(), actualTcList.get(0).getMessage());
@@ -58,7 +58,7 @@ public class ReportTestSuiteImplClassTest
 	ts.addTestCase(new ErrorTestCase("addedErrTcName", "addedTcMessage2"));
 	ts.addTestCase(new ErrorTestCase("differentAddedErrTcName", "differentAddedTcMessage"));
 	
-	List<XmlTestCase> actualTcList = ts.getTestCaseList();
+	List<ReportTestCase> actualTcList = ts.getTestCaseList();
 	
 	assertNotNull(actualTcList);
 	assertEquals(2, actualTcList.size());
@@ -80,7 +80,7 @@ public class ReportTestSuiteImplClassTest
     @Test
     public void testAddAllTestCases()
     {
-	List<XmlTestCase> tcList = new ArrayList<>();
+	List<ReportTestCase> tcList = new ArrayList<>();
 	tcList.add(new ErrorTestCase("addedErrTcName", "addedTcMessage1"));
 	tcList.add(new ErrorTestCase("addedErrTcName", "addedTcMessage2"));
 	tcList.add(new ErrorTestCase("differentAddedErrTcName", "differentAddedTcMessage"));

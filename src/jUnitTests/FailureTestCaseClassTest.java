@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jUnitXmlReporter.jUnitElementClasses.testCases.FailureTestCase;
-import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 
 public class FailureTestCaseClassTest
 {
-    private XmlTestCase failTc;
+    private ReportTestCase failTc;
 	
 	@Before
 	public void setUp() throws Exception

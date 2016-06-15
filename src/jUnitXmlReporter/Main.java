@@ -1,12 +1,11 @@
 package jUnitXmlReporter;
 
-import jUnitXmlReporter.observerClasses.ReportObserverImpl;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
-import jUnitXmlReporter.observerClasses.ReportObserver;
+import jUnitXmlReporter.notificationClasses.DefaultReportObserver;
+import jUnitXmlReporter.notificationClasses.ReportObserver;
 import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
 import jUnitXmlReporter.reportClasses.ReportProperties;
 import usageDemoClasses.CapsChecker;
@@ -28,7 +27,7 @@ public class Main
 	{
 		logger.trace("\n\t ---- Starting test run of JUnitXmlRepoter programm ----\n");
 
-		ReportObserver reportObserver = new ReportObserverImpl();
+		ReportObserver reportObserver = new DefaultReportObserver();
 		
 		SomeClassToCheck testSubject1 = new SomeClassToCheck("firstSubjectToTest", new String[]{"Aibohphobia", "openSource"});
 		runTests(reportObserver, testSubject1);

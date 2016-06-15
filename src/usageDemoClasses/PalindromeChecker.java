@@ -1,15 +1,15 @@
 package usageDemoClasses;
 
 import jUnitXmlReporter.jUnitElementClasses.testCases.FailureTestCase;
-import jUnitXmlReporter.observerClasses.AbstractReportSubjectImpl;
-import jUnitXmlReporter.observerClasses.CheckedClass;
+import jUnitXmlReporter.notificationClasses.DefaultReportSubject;
+import jUnitXmlReporter.notificationClasses.ReportedClass;
 
 /**
  * Demo implementation of a testing class
  */
-public class PalindromeChecker extends AbstractReportSubjectImpl
+public class PalindromeChecker extends DefaultReportSubject
 {
-	public PalindromeChecker(CheckedClass testSubject, String testName)
+	public PalindromeChecker(ReportedClass testSubject, String testName)
 	{
 		super(testSubject, testName);
 	}

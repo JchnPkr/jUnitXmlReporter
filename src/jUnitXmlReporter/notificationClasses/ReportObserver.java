@@ -1,4 +1,4 @@
-package jUnitXmlReporter.observerClasses;
+package jUnitXmlReporter.notificationClasses;
 
 import java.util.HashMap;
 

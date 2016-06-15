@@ -6,17 +6,17 @@ import org.jdom2.Element;
 import org.junit.Before;
 import org.junit.Test;
 
-import jUnitXmlReporter.jUnitElementClasses.testCases.AbstractTestCase;
-import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.DefaultTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 
-public class AbstractTestCaseClassTest
+public class DefaultTestCaseClassTest
 {
-	private XmlTestCase tc;
+	private ReportTestCase tc;
 	
 	@Before
 	public void setUp() throws Exception
 	{
-		tc = new AbstractTestCase("tcName", "tcMessage")
+		tc = new DefaultTestCase("tcName", "tcMessage")
 		{		
 			@Override
 			public Element getJUnitTestCaseXmlElement()

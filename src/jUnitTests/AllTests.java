@@ -7,8 +7,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses(
 	{ 
-		AbstractReportSubjectImplClassTest.class,
-	    AbstractTestCaseClassTest.class,
+		DefaultReportSubjectClassTest.class,
+	    DefaultTestCaseClassTest.class,
 	    ErrorTestCaseClassTest.class, 
 	    FailureTestCaseClassTest.class,
 	    JUnitXmlReportCreatorClassTest.class,

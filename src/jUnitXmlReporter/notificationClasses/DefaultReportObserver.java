@@ -1,4 +1,4 @@
-package jUnitXmlReporter.observerClasses;
+package jUnitXmlReporter.notificationClasses;
 
 import java.util.HashMap;
 
@@ -12,13 +12,13 @@ import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
 /**
  * Basic {@link ReportObserver} implementation
  */
-public class ReportObserverImpl implements ReportObserver
+public class DefaultReportObserver implements ReportObserver
 {
-	private static final Logger logger = LogManager.getLogger(ReportObserverImpl.class.getName());
+	private static final Logger logger = LogManager.getLogger(DefaultReportObserver.class.getName());
 	
 	private HashMap<String, ReportTestSuite> testSuiteMap;
 
-	public ReportObserverImpl()
+	public DefaultReportObserver()
 	{
 		this.testSuiteMap = new HashMap<>();
 	}
