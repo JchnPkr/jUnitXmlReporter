@@ -9,9 +9,9 @@ import org.junit.Test;
 
 import jUnitXmlReporter.jUnitElementClasses.testCases.ErrorTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
-import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuiteImpl;
-import jUnitXmlReporter.observerClasses.ReportObserver;
-import jUnitXmlReporter.observerClasses.ReportObserverImpl;
+import jUnitXmlReporter.notificationClasses.DefaultReportObserver;
+import jUnitXmlReporter.notificationClasses.ReportObserver;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.DefaultReportTestSuite;
 
 public class ReportObserverImplClassTest
 {
@@ -20,7 +20,7 @@ public class ReportObserverImplClassTest
 	@Before
 	public void setUp() throws Exception
 	{
-		this.reportObserver = new ReportObserverImpl();
+		this.reportObserver = new DefaultReportObserver();
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class ReportObserverImplClassTest
 	@Test
 	public void testTestSuiteUpDate()
 	{
-		ReportTestSuite ts = new ReportTestSuiteImpl("reportTestSuite");
+		ReportTestSuite ts = new DefaultReportTestSuite("reportTestSuite");
 		ts.addTestCase(new ErrorTestCase("errorTestCaseName", "errorTestCaseMessage"));
 
 		this.reportObserver.upDate(ts);
@@ -53,7 +53,7 @@ public class ReportObserverImplClassTest
 	@Test
 	public void testTestCaseAppendUpDate()
 	{
-		ReportTestSuite ts = new ReportTestSuiteImpl("reportTestSuite");
+		ReportTestSuite ts = new DefaultReportTestSuite("reportTestSuite");
 		ts.addTestCase(new ErrorTestCase("errorTestCaseName", "errorTestCaseMessage"));
 
 		this.reportObserver.upDate(ts);

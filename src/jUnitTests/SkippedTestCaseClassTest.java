@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jUnitXmlReporter.jUnitElementClasses.testCases.SkippedTestCase;
-import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 
 public class SkippedTestCaseClassTest
 {
-    private XmlTestCase skipTc;
+    private ReportTestCase skipTc;
 	
 	@Before
 	public void setUp() throws Exception

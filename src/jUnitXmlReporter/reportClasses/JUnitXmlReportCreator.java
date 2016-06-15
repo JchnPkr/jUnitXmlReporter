@@ -17,7 +17,7 @@ import org.jdom2.output.XMLOutputter;
 
 import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
-import jUnitXmlReporter.observerClasses.ReportObserver;
+import jUnitXmlReporter.notificationClasses.ReportObserver;
 
 /**
  * Class to create report file and write testsuites collected by

@@ -10,27 +10,27 @@ import org.mockito.Mockito;
 
 import jUnitXmlReporter.exceptionClasses.UnregisteredObserverException;
 import jUnitXmlReporter.jUnitElementClasses.testCases.FailureTestCase;
-import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
-import jUnitXmlReporter.observerClasses.AbstractReportSubjectImpl;
-import jUnitXmlReporter.observerClasses.CheckedClass;
-import jUnitXmlReporter.observerClasses.ReportObserver;
-import jUnitXmlReporter.observerClasses.ReportObserverImpl;
-import jUnitXmlReporter.observerClasses.ReportSubject;
+import jUnitXmlReporter.notificationClasses.DefaultReportObserver;
+import jUnitXmlReporter.notificationClasses.DefaultReportSubject;
+import jUnitXmlReporter.notificationClasses.ReportObserver;
+import jUnitXmlReporter.notificationClasses.ReportSubject;
+import jUnitXmlReporter.notificationClasses.ReportedClass;
 
 
 
-public class AbstractReportSubjectImplClassTest
+public class DefaultReportSubjectClassTest
 {
 	private ReportSubject reportSubject;
 	
 	@Before
 	public void setUp() throws Exception
 	{
-		CheckedClass classToCheck = Mockito.mock(CheckedClass.class);
+		ReportedClass classToCheck = Mockito.mock(ReportedClass.class);
 		Mockito.when(classToCheck.getId()).thenReturn("testId");
 		
-		reportSubject = new AbstractReportSubjectImpl(classToCheck, "testName")
+		reportSubject = new DefaultReportSubject(classToCheck, "testName")
 				{
 					@Override
 					protected void test()
@@ -50,7 +50,7 @@ public class AbstractReportSubjectImplClassTest
 	@Test
 	public void testRegisterReportObserver() throws UnregisteredObserverException
 	{
-		ReportObserver reportObserver = new ReportObserverImpl();
+		ReportObserver reportObserver = new DefaultReportObserver();
 		
 		reportSubject.registerReportObserver(reportObserver);
 		reportSubject.notifyObserver();
@@ -59,19 +59,19 @@ public class AbstractReportSubjectImplClassTest
 	@Test
 	public void testRunTest()
 	{	
-		ReportObserver reportObserver = new ReportObserverImpl();
+		ReportObserver reportObserver = new DefaultReportObserver();
 		reportSubject.registerReportObserver(reportObserver);
 		
-		((AbstractReportSubjectImpl) reportSubject).runTest();
+		((DefaultReportSubject) reportSubject).runTest();
 		
 		ReportTestSuite ts = reportObserver.getTestSuiteMap().get("testId");
 	
 		assertTrue(isTestCaseFound(ts.getTestCaseList()));
 	}
 
-	private boolean isTestCaseFound(List<XmlTestCase> tcList)
+	private boolean isTestCaseFound(List<ReportTestCase> tcList)
 	{
-		for(XmlTestCase tc: tcList)
+		for(ReportTestCase tc: tcList)
 			if(tc.getMessage().equals("testMethodInvoked"))
 				return true;
 		
@@ -81,6 +81,6 @@ public class AbstractReportSubjectImplClassTest
 	@Test(expected = UnregisteredObserverException.class)
 	public void testNotifyObserverException() throws UnregisteredObserverException
 	{
-		((AbstractReportSubjectImpl) reportSubject).notifyObserver();
+		((DefaultReportSubject) reportSubject).notifyObserver();
 	}
 }

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.jdom2.Element;
 
-import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
-import jUnitXmlReporter.observerClasses.ReportObserver;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
+import jUnitXmlReporter.notificationClasses.ReportObserver;
 
 /**
  * Interface used in {@link ReportObserver}
@@ -13,15 +13,15 @@ import jUnitXmlReporter.observerClasses.ReportObserver;
 public interface ReportTestSuite
 {
 
-	void addTestCase(XmlTestCase tc);
+	void addTestCase(ReportTestCase tc);
 
-	List<XmlTestCase> getTestCaseList();
+	List<ReportTestCase> getTestCaseList();
 
 	String getName();
 
 	void setName(String name);
 
-	void addAllTestCases(List<XmlTestCase> testCaseList);
+	void addAllTestCases(List<ReportTestCase> testCaseList);
 
 	Element getJUnitTestSuiteXmlElement();
 

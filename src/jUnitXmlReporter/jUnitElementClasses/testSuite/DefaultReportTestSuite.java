@@ -10,26 +10,26 @@ import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.jdom2.filter.ElementFilter;
 
-import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 
 /**
  * Implementation giving default testsuite format
  */
-public class ReportTestSuiteImpl implements ReportTestSuite
+public class DefaultReportTestSuite implements ReportTestSuite
 {
-	private static final Logger logger = LogManager.getLogger(ReportTestSuiteImpl.class.getName());
+	private static final Logger logger = LogManager.getLogger(DefaultReportTestSuite.class.getName());
 	
 	private String name;
-	private HashMap<String, XmlTestCase> testCaseMap;
+	private HashMap<String, ReportTestCase> testCaseMap;
 	
-	public ReportTestSuiteImpl(String name)
+	public DefaultReportTestSuite(String name)
 	{
 		this.setName(name);
 		this.testCaseMap = new HashMap<>();
 	}
 	
 	@Override
-	public void addTestCase(XmlTestCase tc)
+	public void addTestCase(ReportTestCase tc)
 	{
 		if(containsTestCase(tc))
 		{
@@ -54,7 +54,7 @@ public class ReportTestSuiteImpl implements ReportTestSuite
 		}
 	}
 
-	private boolean containsTestCase(XmlTestCase tc)
+	private boolean containsTestCase(ReportTestCase tc)
 	{	
 		if(testCaseMap.containsKey(tc.getName()))
 			return	isSameTestCaseType(tc);
@@ -62,7 +62,7 @@ public class ReportTestSuiteImpl implements ReportTestSuite
 		return  false;
 	}
 	
-	private boolean isSameTestCaseType(XmlTestCase tc)
+	private boolean isSameTestCaseType(ReportTestCase tc)
 	{
 		String existingTcType = testCaseMap.get(tc.getName())
 				.getType();
@@ -71,9 +71,9 @@ public class ReportTestSuiteImpl implements ReportTestSuite
 	}
 	
 	@Override
-	public List<XmlTestCase> getTestCaseList()
+	public List<ReportTestCase> getTestCaseList()
 	{
-		return new ArrayList<XmlTestCase>(testCaseMap.values());
+		return new ArrayList<ReportTestCase>(testCaseMap.values());
 	}
 
 	@Override
@@ -89,9 +89,9 @@ public class ReportTestSuiteImpl implements ReportTestSuite
 	}
 
 	@Override
-	public void addAllTestCases(List<XmlTestCase> testCaseList)
+	public void addAllTestCases(List<ReportTestCase> testCaseList)
 	{
-		for(XmlTestCase tc: testCaseList)
+		for(ReportTestCase tc: testCaseList)
 		{
 			addTestCase(tc);
 		}
@@ -115,7 +115,7 @@ public class ReportTestSuiteImpl implements ReportTestSuite
 	
 	private void addTestCasesToSuiteXmlElement(Element suite)
 	{
-		for(XmlTestCase testCase: testCaseMap.values())
+		for(ReportTestCase testCase: testCaseMap.values())
 		{
 			Element jUnitTestCaseXmlTag = testCase.getJUnitTestCaseXmlElement();
 			suite.addContent(jUnitTestCaseXmlTag);

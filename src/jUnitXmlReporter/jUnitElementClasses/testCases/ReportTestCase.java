@@ -5,7 +5,7 @@ import org.jdom2.Element;
 /**
  * Interface of the testcases used in {@link jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite}
  */
-public interface XmlTestCase
+public interface ReportTestCase
 {
 	String getName();
 

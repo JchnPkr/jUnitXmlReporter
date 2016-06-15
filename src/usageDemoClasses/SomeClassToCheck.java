@@ -1,11 +1,11 @@
 package usageDemoClasses;
 
-import jUnitXmlReporter.observerClasses.CheckedClass;
+import jUnitXmlReporter.notificationClasses.ReportedClass;
 
 /**
  * Demo implementation of a class under test
  */
-public class SomeClassToCheck implements CheckedClass
+public class SomeClassToCheck implements ReportedClass
 {
 	private String id;
 	private String[] someStringArr;

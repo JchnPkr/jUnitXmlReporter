@@ -5,7 +5,7 @@ import org.jdom2.Element;
 /**
  * Default testcase implementation
  */
-public class ErrorTestCase extends AbstractTestCase
+public class ErrorTestCase extends DefaultTestCase
 {
 	public ErrorTestCase(String name, String message)
 	{

@@ -1,15 +1,15 @@
 package usageDemoClasses;
 
 import jUnitXmlReporter.jUnitElementClasses.testCases.FailureTestCase;
-import jUnitXmlReporter.observerClasses.AbstractReportSubjectImpl;
-import jUnitXmlReporter.observerClasses.CheckedClass;
+import jUnitXmlReporter.notificationClasses.DefaultReportSubject;
+import jUnitXmlReporter.notificationClasses.ReportedClass;
 
 /**
  * Demo implementation of a testing class
  */
-public class CapsChecker extends AbstractReportSubjectImpl
+public class CapsChecker extends DefaultReportSubject
 {
-	public CapsChecker(CheckedClass testSubject, String testName)
+	public CapsChecker(ReportedClass testSubject, String testName)
 	{
 		super(testSubject, testName);
 	}

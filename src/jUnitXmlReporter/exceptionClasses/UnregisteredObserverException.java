@@ -1,6 +1,6 @@
 package jUnitXmlReporter.exceptionClasses;
 
-import jUnitXmlReporter.observerClasses.ReportSubject;
+import jUnitXmlReporter.notificationClasses.ReportSubject;
 
 /**
  * Used in {@link ReportSubject} and it's implementations

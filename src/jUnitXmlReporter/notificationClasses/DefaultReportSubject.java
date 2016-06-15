@@ -1,25 +1,25 @@
-package jUnitXmlReporter.observerClasses;
+package jUnitXmlReporter.notificationClasses;
 
 import jUnitXmlReporter.exceptionClasses.UnregisteredObserverException;
 import jUnitXmlReporter.jUnitElementClasses.testCases.SystemOutTestCase;
-import jUnitXmlReporter.jUnitElementClasses.testCases.XmlTestCase;
+import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
-import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuiteImpl;
+import jUnitXmlReporter.jUnitElementClasses.testSuite.DefaultReportTestSuite;
 
 /**
  * Basic implementation to be extended by classes running tests
  */
-public abstract class AbstractReportSubjectImpl implements ReportSubject
+public abstract class DefaultReportSubject implements ReportSubject
 {
 	private ReportObserver reportObserver;
 	protected ReportTestSuite reportTestSuite;
-	protected CheckedClass testSubject;
+	protected ReportedClass testSubject;
 	protected String testName;
 
-	public AbstractReportSubjectImpl(CheckedClass testSubject, String testName)
+	public DefaultReportSubject(ReportedClass testSubject, String testName)
 	{
 		this.testSubject = testSubject;
-		reportTestSuite = new ReportTestSuiteImpl(testSubject.getId());
+		reportTestSuite = new DefaultReportTestSuite(testSubject.getId());
 		this.testName = testName;
 	}
 
@@ -34,7 +34,7 @@ public abstract class AbstractReportSubjectImpl implements ReportSubject
 	 * that should be performed by the actual implemementation
 	 * when {@link #runTest()} is called.
 	 * 
-	 * If the test fails use {@link #addTestCase(XmlTestCase)} 
+	 * If the test fails use {@link #addTestCase(ReportTestCase)} 
 	 * to add an appropriate testcase to {@link #reportTestSuite}
 	 */
 	protected abstract void test();
@@ -89,7 +89,7 @@ public abstract class AbstractReportSubjectImpl implements ReportSubject
 	 * 
 	 * @param testCase testCase to add to {@link #reportTestSuite}
 	 */
-	protected void addTestCase(XmlTestCase testCase)
+	protected void addTestCase(ReportTestCase testCase)
 	{
 		reportTestSuite.addTestCase(testCase);
 	}
