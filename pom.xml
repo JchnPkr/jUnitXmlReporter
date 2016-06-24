@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>jUnitXmlReporter</groupId>
   <artifactId>jUnitXmlReporter</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.4-SNAPSHOT</version>
   <name>jUnitXmlReporter</name>
   <description>observer collecting testsuites and testcases, providing jenkins / jUnit - conform xml report file</description>
   <properties>
@@ -81,7 +81,20 @@
 	        </goals>
 	      </execution>
         </executions>
-      </plugin>      
+      </plugin> 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.4</version>
+        <executions>
+                <execution>
+                    <id>attach-javadoc</id>
+                    <goals>
+                        <goal>jar</goal>
+                    </goals>
+                </execution>
+            </executions>
+      </plugin>     
     </plugins>
   </build>
     	<distributionManagement>
