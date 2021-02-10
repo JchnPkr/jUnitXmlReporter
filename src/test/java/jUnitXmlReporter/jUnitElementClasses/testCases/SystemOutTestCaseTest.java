@@ -1,4 +1,4 @@
-package jUnitTests;
+package jUnitXmlReporter.jUnitElementClasses.testCases;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,7 @@ import org.junit.Test;
 import jUnitXmlReporter.jUnitElementClasses.testCases.SystemOutTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 
-public class SystemOutTestCaseClassTest
+public class SystemOutTestCaseTest
 {
     private ReportTestCase sysOutTc;
 	

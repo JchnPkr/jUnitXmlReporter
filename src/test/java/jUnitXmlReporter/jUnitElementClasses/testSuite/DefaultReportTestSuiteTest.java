@@ -1,4 +1,4 @@
-package jUnitTests;
+package jUnitXmlReporter.jUnitElementClasses.testSuite;
 
 import static org.junit.Assert.*;
 
@@ -17,7 +17,7 @@ import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.DefaultReportTestSuite;
 
-public class ReportTestSuiteImplClassTest
+public class DefaultReportTestSuiteTest
 {
     private ReportTestSuite ts;
     

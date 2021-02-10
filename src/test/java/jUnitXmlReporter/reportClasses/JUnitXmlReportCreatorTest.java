@@ -1,4 +1,4 @@
-package jUnitTests;
+package jUnitXmlReporter.reportClasses;
 
 import static org.junit.Assert.*;
 
@@ -13,7 +13,7 @@ import jUnitXmlReporter.exceptionClasses.InvalidReportFileFormat;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.ReportTestSuite;
 import jUnitXmlReporter.reportClasses.JUnitXmlReportCreator;
 
-public class JUnitXmlReportCreatorClassTest
+public class JUnitXmlReportCreatorTest
 {
 	private static final String testReportFilePath = "./src/jUnitTests";
 	private static final String testReportFileName = "testReportTestFile.xml";

@@ -1,4 +1,4 @@
-package jUnitTests;
+package jUnitXmlReporter.reportClasses;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import jUnitXmlReporter.reportClasses.ReportProperties;
 
-public class ReportPropertiesClassTest
+public class ReportPropertiesTest
 {
 	private static final String testPropertiesFilePath = "./src/jUnitTests/invalidTestConfig.properties";
 

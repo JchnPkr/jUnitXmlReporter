@@ -1,4 +1,4 @@
-package jUnitTests;
+package jUnitXmlReporter.jUnitElementClasses.testCases;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,7 @@ import org.junit.Test;
 import jUnitXmlReporter.jUnitElementClasses.testCases.SkippedTestCase;
 import jUnitXmlReporter.jUnitElementClasses.testCases.ReportTestCase;
 
-public class SkippedTestCaseClassTest
+public class SkippedTestCaseTest
 {
     private ReportTestCase skipTc;
 	

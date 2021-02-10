@@ -1,4 +1,4 @@
-package jUnitTests;
+package jUnitXmlReporter.notificationClasses;
 
 import static org.junit.Assert.*;
 
@@ -20,7 +20,7 @@ import jUnitXmlReporter.notificationClasses.ReportedClass;
 
 
 
-public class DefaultReportSubjectClassTest
+public class DefaultReportSubjectTest
 {
 	private ReportSubject reportSubject;
 	

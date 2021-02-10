@@ -1,4 +1,4 @@
-package jUnitTests;
+package jUnitXmlReporter.notificationClasses;
 
 import static org.junit.Assert.*;
 
@@ -13,7 +13,7 @@ import jUnitXmlReporter.notificationClasses.DefaultReportObserver;
 import jUnitXmlReporter.notificationClasses.ReportObserver;
 import jUnitXmlReporter.jUnitElementClasses.testSuite.DefaultReportTestSuite;
 
-public class ReportObserverImplClassTest
+public class DefaultReportObserverTest
 {
 	private ReportObserver reportObserver;
 
